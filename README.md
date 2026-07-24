@@ -4,7 +4,7 @@ Et spill inspirert av norrøn mytologi, bygget i Godot.
 
 ## Status
 
-Tidlig prosjektoppstart — ingen spillbar versjon ennå.
+Spillbar vertikal skive (Borg/Vágar/Saltstraumen) med kjernesystemer (tidslagsbytte, oppdrag, dialog, lagring, innstillinger) ferdig gjennom M0–M4. Spilt via nettleser: **https://atlasinmind.github.io/norse-game/** — se `docs/deployment.md`.
 
 ## Utvikling
 
@@ -36,3 +36,7 @@ Godot-prosjektet ligger i `game/`, ikke i repo-roten. Dette holder spillkoden at
 2. Eksporter fra kommandolinjen: `mkdir -p ../builds/web && godot --headless --export-release "Web" ../builds/web/index.html` (kjørt fra `game/`). Målmappen må finnes på forhånd — Godot oppretter den ikke selv. Output havner i `builds/` i repo-roten (utenfor `game/`s ressurstre, git-ignorert). HTML-shellet som brukes er `game/web_export_shell.html` (en tilpasset versjon av Godots standardmal, satt via `html/custom_html_shell` i `export_presets.cfg`) — viser spillets egen tittel under lasting i stedet for Godot-motorens logo, se `docs/research/web_export_findings.md`.
 3. For å teste lokalt: server `builds/web/` med en enkel HTTP-server (f.eks. `python3 -m http.server`) og åpne i nettleser — kan ikke åpnes direkte som `file://`.
 4. Se `docs/research/web_export_findings.md` for målte filstørrelser/lastetider og kjente konfigurasjonsfeller (canvas-resize-policy, Control-ankere, m.m.).
+
+### Utgivelse (GitHub Pages)
+
+Spillet er publisert på **https://atlasinmind.github.io/norse-game/**, servert fra `gh-pages`-branchen (kun bygg-output, ikke prosjektkilden). Se `docs/deployment.md` for hvordan man publiserer en ny versjon og hva som faktisk er verifisert i produksjon (kompresjon, reell lastetid).

@@ -58,8 +58,9 @@ Tallet på 30,7 sekunder er reelt bekymringsverdig for en "tom" scene, MEN det g
 
 ## Åpne spørsmål til videre arbeid (ikke løst i denne spiken)
 
-- Hvilken hostingtjeneste skal brukes for endelig utgivelse, og komprimerer den `.wasm` med brotli som standard? (Påvirker punkt «Effekt av kompresjon» over.) — hosting-valg selv hører til M5 «Release preparation»-milepælen.
 - Reell test på en fysisk mobilenhet (ikke bare simulert nettverk i en Chromium-desktop-instans) — dekket av GitHub-issue #29 under M4.
+
+**Løst 2026-07-25 (GitHub-issue #32):** hostingtjeneste er valgt (GitHub Pages) og verifisert i faktisk produksjon — se `docs/deployment.md` for full målemetodikk og resultat. Kort oppsummert: GitHub Pages komprimerer `.wasm` med gzip (bekreftet, ~10,2 MB), men **ikke** brotli (bekreftet fravær av `Content-Encoding: br` selv når eksplisitt forespurt) — motsier denne spikens antakelse om at «de fleste moderne statiske hostingtjenester... gjør dette automatisk». Reell, målt boot-til-hovedmeny-tid mot den faktiske live-URL-en: 9,4 sekunder på simulert ~10 Mbps, 1,1 sekunder ubegrenset — nære nok det lokale gzip-serveranslaget fra issue #28 (10,1 s) til at det bekrefter den målingen var et realistisk stand-in for ekte hosting.
 
 ## Oppdatering 2026-07-24: loading-skjerm (GitHub-issue #27)
 
@@ -127,4 +128,4 @@ M0-dokumentet estimerte teoretisk brotli-lastetid til «6-7 sekunder pluss WASM-
 
 ## Sist oppdatert
 
-2026-07-24 (tillegg: loading-skjerm løst, se eget avsnitt over, GitHub-issue #27; tillegg: ny måling med faktisk spillinnhold, GitHub-issue #28)
+2026-07-24 (tillegg: loading-skjerm løst, se eget avsnitt over, GitHub-issue #27; tillegg: ny måling med faktisk spillinnhold, GitHub-issue #28); 2026-07-25 (tillegg: hosting valgt og verifisert i produksjon, se `docs/deployment.md`, GitHub-issue #32)

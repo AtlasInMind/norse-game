@@ -123,3 +123,18 @@ foreløpig / provisional
 **Consequences:** the mandatory research/documentation gate for Salten-associated content is satisfied for everything in the repo as of this date. It does **not** expire — §2.7's guidance (avoid stereotyping, exoticizing, or erasing Sámi presence; don't flatten the coexistence/conflict question; use regionally precise material culture; consider institutional review for concrete Sámi content) still applies in full to any new Salten-region content written from here forward, and each new piece of such content should be checked against it before being considered finished.
 
 **Status:** final.
+
+### 2026-07-25 — Repo made public; GitHub Pages chosen for web hosting
+
+**Rationale:** GitHub issue #32 (M5, web hosting) needed a hosting decision. GitHub Pages was preferred over Netlify/Vercel/Cloudflare Pages because it needs no new third-party account or credentials — the project already lives in this GitHub repo. GitHub Pages does not support serving from a private repository on a free plan, so the repo's visibility was the actual decision point. Presented to the client directly (repo made public vs. keeping it private on a paid plan vs. switching to a different host that supports private-repo deploys); the client chose making the repo public.
+
+**Sources/basis:** Client instruction (2026-07-25), given directly in response to the trade-off as presented.
+
+**Consequences:**
+- `AtlasInMind/norse-game` is now a public GitHub repository — full source, `docs/` research corpus, and commit history are publicly visible, not just the hosted game itself.
+- A quick scan for secrets/credentials in the full commit history was done before flipping visibility (none found) — this was precautionary due diligence, not a formal security audit.
+- The game is deployed from a `gh-pages` branch (orphan, build output only, not project source) to `https://atlasinmind.github.io/norse-game/`. GitHub auto-enabled Pages on first push to that branch.
+- Verified live: GitHub Pages serves `index.wasm` with gzip compression (confirmed via `Content-Encoding: gzip`) but **not** Brotli (requesting `br` returns the full uncompressed file) — see `docs/deployment.md` for the full measurement. This is worse than the Brotli-capable hosts considered but not chosen; revisit only if load time becomes a real concern once real (non-placeholder) assets are added.
+- Deployment is currently manual (documented in `docs/deployment.md`); CI-driven auto-deploy on push to `main` was deliberately not built yet, since it requires a heavier Godot-in-CI setup and deploys aren't frequent enough yet to justify it.
+
+**Status:** final (hosting choice and repo visibility are settled; revisiting either would be its own future decision, not an open item).
