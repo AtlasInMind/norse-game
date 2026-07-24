@@ -10,7 +10,7 @@ Etablere en kildekritisk avgrensning av vikingtiden i tid og rom, og dokumentere
 
 ## Sist oppdatert
 
-2026-07-24 (tillegg: regionspesifikk seksjon 10 om Hålogaland/Lofoten/Vesterålen/Salten; tillegg: seksjon 12 om samisk tilstedeværelse og samisk-norrøn kontakt i samme region, se `OPEN_QUESTIONS.md` punkt 10)
+2026-07-24 (tillegg: regionspesifikk seksjon 10 om Hålogaland/Lofoten/Vesterålen/Salten; tillegg: seksjon 12 om samisk tilstedeværelse og samisk-norrøn kontakt i samme region, se `OPEN_QUESTIONS.md` punkt 7)
 
 ## Status
 
@@ -360,7 +360,7 @@ Flere av funnene i denne seksjonen berører samisk-norrøn kontakt direkte — b
 
 ## 12. Samisk tilstedeværelse og samisk-norrøn kontakt i Lofoten/Vesterålen/Salten
 
-**Bakgrunn og kildekritisk utgangspunkt:** Da oppdragsgiver 2026-07-24 la spillet til Lofoten/Vesterålen/Salten (se `docs/DECISIONS.md` og `OPEN_QUESTIONS.md` punkt 10), ble regionens samiske historie en obligatorisk del av kunnskapsgrunnlaget, ikke en valgfri utvidelse. Denne seksjonen er skrevet med samme sikkerhetsgrad-metodikk som `authenticity_and_sensitive_topics.md` (fakta / sannsynlig rekonstruksjon / faglig omdiskutert / senere myte) og skal leses sammen med design-veiledningen i samme dokuments del 2.7.
+**Bakgrunn og kildekritisk utgangspunkt:** Da oppdragsgiver 2026-07-24 la spillet til Lofoten/Vesterålen/Salten (se `docs/DECISIONS.md` og `OPEN_QUESTIONS.md` punkt 7), ble regionens samiske historie en obligatorisk del av kunnskapsgrunnlaget, ikke en valgfri utvidelse. Denne seksjonen er skrevet med samme sikkerhetsgrad-metodikk som `authenticity_and_sensitive_topics.md` (fakta / sannsynlig rekonstruksjon / faglig omdiskutert / senere myte) og skal leses sammen med design-veiledningen i samme dokuments del 2.7.
 
 Kildesituasjonen for samisk-norrøne forhold i denne perioden er strukturelt skjev: så godt som alle skriftlige kilder fra selve perioden (Ottars beretning, senere norrøne lovtekster, sagalitteratur) er skrevet av og for den norrøne/norske parten, aldri av samer selv, og ofte med et eksplisitt formål (skatteinnkreving, æresfortelling, senere religiøs omvendelsesfortelling). Samisk egen kunnskapsoverføring fra perioden er i hovedsak muntlig tradisjon, stedsnavn og materiell kultur — reelle og faglig anerkjente kildetyper, men dårligere bevart/registrert mange steder enn norrøne skriftlige kilder og gravfunn. Moderne, samisk-institusjonstilknyttet forskning (Árran, Sámi allaskuvla, samt navngitte UiT-forskere med lang tradisjon for samisk historie) er derfor ikke bare «enda en kilde» blant flere, men ofte den eneste tilgjengelige motvekten til et ellers ensidig norrønt/norsk kildeblikk. Denne seksjonen prioriterer slike kilder der de finnes, ved siden av fagfellevurdert forskning generelt.
 

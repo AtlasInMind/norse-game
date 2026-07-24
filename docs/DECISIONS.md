@@ -111,3 +111,15 @@ foreløpig / provisional
 - Combat level remains an open question (see `OPEN_QUESTIONS.md`) — not resolved by this pivot; default working assumption is no combat system but real tension/danger/consequence.
 
 **Status:** final (tone/audience/language direction is set; specific new content written under it is ongoing work, tracked via the M3 milestone).
+
+### 2026-07-24 — Sámi sensitivity review completed (GitHub issue #26)
+
+**Rationale:** `OPEN_QUESTIONS.md` (former item 7) and `authenticity_and_sensitive_topics.md` §2.7 required dedicated, source-critical research on Sámi presence and Sámi-Norse contact in Lofoten/Vesterålen/Salten before any Salten-associated content — existing or new — could be considered finished. A prior session had already written the core research (`research/historical_scope.md` §12, `research/daily_life.md` §1.5) and design guidance (`authenticity_and_sensitive_topics.md` §2.7), but the issue's remaining acceptance criteria — updating `RESEARCH_INDEX.md`'s status and reviewing existing Salten-adjacent content against the guidance — were not done, and several cross-references still pointed at `OPEN_QUESTIONS.md`'s pre-reboot item numbering.
+
+**What was done:** all existing game content (`game/resources/`) was searched for Sámi-related material (characters, place names, symbols, religious references) — none exists yet, anywhere. The only Salten-adjacent content, the "The Grave Under the Floor" quest (a real, documented Norse grave find near Saltstraumen, SRC-HIST-090/091), was reviewed against §2.7's recommendations and required no changes: it makes no ethnic/cultural claims beyond an appropriately hedged "suspected Viking grave." This review is recorded in `authenticity_and_sensitive_topics.md` §2.7.1. `RESEARCH_INDEX.md` and `OPEN_QUESTIONS.md` were updated to reflect the research track as complete, and stale "OPEN_QUESTIONS.md punkt 10" cross-references (left over from the reboot's renumbering, now item 7 in the resolved section) were corrected in `source_register.md`, `daily_life.md`, `historical_scope.md`, and `concepts/prototype_recommendation.md`.
+
+**Sources/basis:** `research/historical_scope.md` §12 (SRC-SAMI-001 through SRC-SAMI-012, plus SRC-HIST-093 and SRC-ARCH-022); `research/daily_life.md` §1.5; `authenticity_and_sensitive_topics.md` §2.7-2.7.1.
+
+**Consequences:** the mandatory research/documentation gate for Salten-associated content is satisfied for everything in the repo as of this date. It does **not** expire — §2.7's guidance (avoid stereotyping, exoticizing, or erasing Sámi presence; don't flatten the coexistence/conflict question; use regionally precise material culture; consider institutional review for concrete Sámi content) still applies in full to any new Salten-region content written from here forward, and each new piece of such content should be checked against it before being considered finished.
+
+**Status:** final.

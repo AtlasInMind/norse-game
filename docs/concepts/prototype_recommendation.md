@@ -39,7 +39,7 @@ Bruk **Vestvågøy kommune** (Borg) og nabokommunen **Vågan** (Kabelvåg/Vágar
 ### Hva anbefalingen IKKE betyr
 - Spillet skal **ikke** gjengi Borg, Kabelvåg eller andre navngitte, reelle steder presist eller navngi dem direkte som spillsteder.
 - Regionvalget låser ikke spillets fiksjonelle geografi til virkelige norske stedsnavn — spillets egen verden skal ha oppdiktede navn, riktignok bygget etter ekte navnegranskingsprinsipper (jf. `research/language_and_place_names.md`).
-- Anbefalingen tar ikke stilling til den samiske historiske og nålevende tilstedeværelsen i regionen utover å henvise videre — se `docs/OPEN_QUESTIONS.md` punkt 10 og den parallelle samisk-norrøne kontakt-researchen (`research/authenticity_and_sensitive_topics.md` m.fl.), som må være ferdig og innarbeidet før den konkrete underregionen låses endelig.
+- Anbefalingen tar ikke stilling til den samiske historiske og nålevende tilstedeværelsen i regionen utover å henvise videre — se `docs/OPEN_QUESTIONS.md` (tidligere punkt 10, nå løst) og den samisk-norrøne kontakt-researchen (`research/authenticity_and_sensitive_topics.md` 2.7, `research/historical_scope.md` 12), som nå er fullført — se `docs/RESEARCH_INDEX.md`.
 
 ---
 

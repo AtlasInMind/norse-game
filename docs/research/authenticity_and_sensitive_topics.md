@@ -10,7 +10,7 @@ De fleste utbredte «viking»-klisjeer (hornhjelmer, ensartet blodtørstig krige
 
 ## Sist oppdatert
 
-2026-07-24 (tillegg: del 2.7 om samisk-norrøne forhold i Lofoten/Vesterålen/Salten, se `OPEN_QUESTIONS.md` punkt 10)
+2026-07-24 (tillegg: del 2.7 om samisk-norrøne forhold i Lofoten/Vesterålen/Salten, se `OPEN_QUESTIONS.md` punkt 7; tillegg: 2.7.1, gjennomgang av eksisterende Salten-tilknyttet spillinnhold mot denne veiledningen, jf. GitHub-issue #26)
 
 ## Status
 
@@ -276,6 +276,20 @@ Norse Game bør aktivt unngå å reprodusere lag 3–5 som om de var historisk k
 - **Ikke behandle samisk historie i regionen som noe som kun eksisterte «før» og er avsluttet.** Samisk kultur og identitet i Lofoten/Vesterålen/Salten er levende og kontinuerlig frem til i dag (jf. `historical_scope.md` 12.2) — vikingtids-tidslaget er ett kapittel i en sammenhengende historie, ikke et museumsobjekt.
 - **Skill tydelig, internt i utviklingsarbeidet, mellom hva som er dokumentert samisk egen kunnskap** (muntlig tradisjon, stedsnavn, samisk-institusjonstilknyttet forskning) **og hva som er den norrøne/norske partens fremstilling av samer** (Ottar, senere norrøne lover, sagalitteratur) — disse er ikke likestilte, nøytrale kilder til samme virkelighet, og bør merkes ulikt i intern kildedokumentasjon.
 - **Vurder å la konkret samisk innhold** (dialog, NPC-er, stedsnavnkonstruksjon, gjenstander, eventuell klesdrakt) **bli vurdert eller utviklet i dialog med en samisk faginstitusjon** før det finnes sin endelige form i spillet — f.eks. Árran lulesamisk senter for Salten-spesifikt innhold, eller Sámi allaskuvla — fremfor å basere alt på sekundærkilder alene. Dette er særlig viktig fordi prosjektets egen research i denne runden fortsatt er tynn på flere punkter (se `historical_scope.md` 12.11).
+
+---
+
+### 2.7.1 Gjennomgang av eksisterende Salten-tilknyttet spillinnhold mot denne veiledningen (2026-07-24)
+
+Per GitHub-issue #26s krav om at ingen Salten-tilknyttet innhold skal regnes som ferdig før denne gjennomgangen er gjort: alt eksisterende spillinnhold ble søkt gjennom (`game/resources/`, inkludert alle quest-, dialog- og historical_claim-ressurser) for samisk-relatert innhold (nøkkelord: samisk, sápmi/sapmi, lulesamisk, noaide, siida m.fl.). **Ingen treff.** Spillet har per i dag ingen samiske figurer, stedsnavn, symboler eller religiøse referanser i det hele tatt, verken i Saltstraumen-questen eller andre steder.
+
+Det eneste Salten-tilknyttede innholdet er questen «The Grave Under the Floor» (`quest_saltstraumen_graven.tres` med tilhørende steg og `hc_saltstraumen_vikinggrav.tres`), bygget på en reell, dokumentert nyhetssak (SRC-HIST-090, SRC-HIST-091: NRK/Avisa Nordland, 2021, om et antatt vikingtidsfunn — pilspiss, glassperle, øks — under et bolighus i Saltstraumen). Gjennomgått spesifikt mot 2.7 sine anbefalinger:
+
+- Funnet omtales konsekvent som «probably a Viking grave» / «suspected Viking grave», ikke som en sikker, entydig etnisk/kulturell klassifisering — i tråd med føre-var-prinsippet Skjoldehamn-funnet (`historical_scope.md` 12.3) illustrerer, selv om questen selv ikke eksplisitt nevner Skjoldehamn.
+- Ingen påstander om samisk tilstedeværelse, fravær eller motsetning gjøres noe sted i teksten — verken eksplisitt eller implisitt.
+- Konklusjon: **ingen endringer nødvendig.** Fravær av samisk innhold her er ikke i seg selv et brudd på veiledningen — en quest spesifikt om et norrønt gravfunn trenger ikke samisk innhold tilført kunstig. Risikoen veiledningen advarer mot (eksotisering, stereotypi, usynliggjøring) oppstår når samisk innhold *fremstilles* feil, ikke av at et enkelt, norrønt-spesifikt innhold eksisterer uten det.
+
+**Fremover:** denne gjennomgangen dekker kun innholdet som fantes 2026-07-24. Ethvert nytt Salten-tilknyttet innhold (nye quester, NPC-er, stedsnavn, gjenstander) må vurderes mot anbefalingene i 2.7 før det regnes som ferdig — denne enkeltgjennomgangen er ikke et frikort for fremtidig innhold.
 
 ---
 

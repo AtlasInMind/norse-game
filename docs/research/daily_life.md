@@ -10,7 +10,7 @@ Flertallet av mennesker i vikingtidens Norden var verken krigere eller konger, m
 
 ## Sist oppdatert
 
-2026-07-24 (tillegg: 1.5, om det samiske perspektivet i pelshandelen — se `OPEN_QUESTIONS.md` punkt 10 og full behandling i `historical_scope.md` seksjon 12)
+2026-07-24 (tillegg: 1.5, om det samiske perspektivet i pelshandelen — se `OPEN_QUESTIONS.md` punkt 7 og full behandling i `historical_scope.md` seksjon 12)
 
 ## Status
 

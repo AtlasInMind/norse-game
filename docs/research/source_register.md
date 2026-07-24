@@ -10,7 +10,7 @@ Registeret samler nå ca. 210 unike kilder hentet fra "Kilder i dette dokumentet
 
 ## Sist oppdatert
 
-2026-07-24 (tillegg: kilder for regionspesifikk research på Lofoten/Vesterålen/Salten, se `docs/DECISIONS.md` 2026-07-24; tillegg: ny kategori SRC-SAMI for samisk tilstedeværelse og samisk-norrøn kontakt i samme region, se `OPEN_QUESTIONS.md` punkt 10)
+2026-07-24 (tillegg: kilder for regionspesifikk research på Lofoten/Vesterålen/Salten, se `docs/DECISIONS.md` 2026-07-24; tillegg: ny kategori SRC-SAMI for samisk tilstedeværelse og samisk-norrøn kontakt i samme region, se `OPEN_QUESTIONS.md` punkt 7)
 
 ## Status
 
