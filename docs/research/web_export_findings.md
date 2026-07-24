@@ -73,6 +73,52 @@ Tallet på 30,7 sekunder er reelt bekymringsverdig for en "tom" scene, MEN det g
 
 **Dette løser IKKE** selve lastetids-problemet (39,5 MB `.wasm` er fortsatt 39,5 MB) — kun mangelen på passende visuell tilbakemelding mens brukeren venter. Selve lastetiden avhenger fortsatt av kompresjon på valgt hostingtjeneste (se punktet over, M5) og eventuelt av innholdsvekst siden denne spiken (se GitHub-issue #28).
 
+## Oppdatering 2026-07-24: ny måling med faktisk spillinnhold (GitHub-issue #28)
+
+Den opprinnelige målingen over ble tatt mot en tom testscene (`spike_hello_world.tscn`) i M0. Siden da har M1-M3 bygget tre spillbare lokasjoner (Borg, Vágar, Saltstraumen) med TileMap-er, dialog-/oppdrags-/faktapåstand-ressurser og flere UI-systemer. Denne oppdateringen re-kjører samme eksport-/målemetode (`godot --headless --export-release "Web"`, Playwright/Chromium) mot dagens prosjekttilstand, for å bekrefte om innhold faktisk har lagt merkbart til nedlastingsstørrelsen.
+
+### Filstørrelser: sammenligning mot M0-grunnlinjen
+
+| Fil | M0 (tom scene) | Nå (3 lokasjoner + full UI) | Endring |
+|---|---|---|---|
+| `index.wasm` (motor) | 39 513 091 bytes | 39 513 091 bytes | **0 — helt uendret** (motor-binæren påvirkes ikke av prosjektinnhold i det hele tatt) |
+| `index.js` (motor-glue) | 279 815 bytes | 279 815 bytes | 0 — uendret |
+| `index.pck` (prosjektinnhold) | 3 488 bytes | 111 568 bytes | **+108 080 bytes (~106 KB)** |
+| `index.html` | 5 438 bytes | 5 947 bytes | +509 bytes (egen loading-shell fra issue #27, se over) |
+
+**Konklusjon: innholdsveksten er reell, men neglisjerbar.** Tre komplette, spillbare lokasjoner med tilhørende `.tres`-ressurser (dialog, oppdrag, faktapåstander) og fire UI-systemer (hovedmeny, oppdragslogg, kodex, innstillinger) la til ca. 106 KB — **~0,27 % av totalvekten**, fullstendig dominert av det faste ~37,7 MiB motor-overhead-gulvet identifisert allerede i M0. Dette bekrefter M0-dokumentets egen konklusjon direkte: `Resource`/`.tres`-baserte data og plassholder-pixel-art er billig sammenlignet med selve Godot-motoren, og trenger ikke overvåkes tett med mindre spillet begynner å inkludere tunge binærressurser (lyd, video, høyoppløselig kunst) — noe som fortsatt er placeholder-fase per `CLAUDE.md`. **Dette bør ikke re-diskuteres uten konkret grunn** (f.eks. ekte lydfiler eller høyoppløst kunst lagt til) — den forventede skaleringsfaktoren er nå empirisk kjent (jf. akseptansekriterium i issue #28).
+
+### Kompresjon: bekrefter M0s tall for motoren, måler faktisk innholdstillegg
+
+| Fil | Ukomprimert | gzip -9 | brotli -q 11 |
+|---|---|---|---|
+| `index.wasm` | 39 513 091 | 10 054 511 (~25,4 %) | 6 901 775 (~17,5 %) |
+| `index.pck` | 111 568 | 58 933 (~52,8 %) | 54 498 (~48,9 %) |
+| `index.js` | 279 815 | 68 479 (~24,5 %) | 59 857 (~21,4 %) |
+
+`.wasm`-kompresjonstallene er identiske til M0-målingen (samme motorbygg, uendret av innhold, som forventet). `.pck`-innholdet (tekstbaserte `.tres`-ressurser) komprimerer dårligere prosentvis enn motor-binæren (rundt halvparten, ikke ned til en femtedel), men er i absolutte tall fortsatt trivielt — 54,5 KB brotli-komprimert `.pck` mot 6,9 MB brotli-komprimert `.wasm`.
+
+**Total brotli-komprimert kjernenyttelast (wasm+pck+js): ~7,02 MB**, opp fra M0s split-ut ~6,90 MB for `.wasm` alene (samme konklusjon: praktisk talt uendret av innholdet som faktisk er lagt til).
+
+### Lastetid: målt direkte denne gangen, ikke bare teoretisert
+
+M0-dokumentet estimerte teoretisk brotli-lastetid til «6-7 sekunder pluss WASM-kompileringstid», men skrev eksplisitt «dette er ikke målt direkte». Denne runden målte boot-til-hovedmeny-tid direkte (Playwright/Chromium, samme simulerte ~10 Mbps/40 ms-forbindelse som M0), ved å servere build-mappen gjennom to små lokale Python-servere som selv komprimerer med gzip hhv. brotli og setter riktig `Content-Encoding`-header (siden `python3 -m http.server` ikke komprimerer):
+
+| Scenario | Boot-til-hovedmeny-tid |
+|---|---|
+| Ukomprimert, simulert ~10 Mbps/40 ms | 32,7 s (mot M0s 30,7 s til motor-logglinje — konsistent; det lille avviket er ventet siden dette måler helt til hovedmenyen er spillbar, ikke bare til motoren har logget oppstart) |
+| gzip, simulert ~10 Mbps/40 ms | **10,1 s** |
+| brotli, simulert ~10 Mbps/40 ms | **6,4 s** — bekrefter M0s teoretiske 6-7 sekunders anslag direkte, empirisk |
+| gzip, lokalt/ubegrenset båndbredde | 1,8 s |
+
+**Konklusjon:** M0s anbefaling — hostingtjenesten MÅ serve `.wasm` (og med fordel `.pck`/`.js`) med brotli- eller gzip-kompresjon — bekreftes nå med faktiske målte tall, ikke bare beregning. Selve valget av hostingtjeneste og bekreftelse av at den faktisk komprimerer som standard, gjenstår fortsatt som en oppgave under M5 (se punktet over).
+
+### Metode/kilder
+
+- Samme eksportkommando og Playwright/Chromium-oppsett som selve dette dokumentet (`godot --headless --export-release "Web"`, CDP `Network.emulateNetworkConditions`).
+- Egne lokale Python `http.server`-utvidelser med on-the-fly (gzip) og forhåndsbufret (brotli, siden `-q 11` er for tregt til å kjøre per forespørsel) komprimering, kun brukt til denne målingen — ikke del av prosjektets faktiske eksport-pipeline.
+- Målt 2026-07-24, samme utviklermaskin som M0-spiken.
+
 ## Kilder/researchgrunnlag
 
 - `docs/research/godot_mobile_technical_research.md`, tillegg 2026-07-24 (web-pivot, hva som gjenstår).
@@ -81,4 +127,4 @@ Tallet på 30,7 sekunder er reelt bekymringsverdig for en "tom" scene, MEN det g
 
 ## Sist oppdatert
 
-2026-07-24 (tillegg: loading-skjerm løst, se eget avsnitt over, GitHub-issue #27)
+2026-07-24 (tillegg: loading-skjerm løst, se eget avsnitt over, GitHub-issue #27; tillegg: ny måling med faktisk spillinnhold, GitHub-issue #28)
