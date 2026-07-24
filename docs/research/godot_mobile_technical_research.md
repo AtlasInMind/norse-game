@@ -10,7 +10,7 @@ Godot 4.x (per juli 2026 er stabil gren 4.7, se versjonsnotat under) er godt egn
 
 ## Sist oppdatert
 
-2026-07-23
+2026-07-23 (tillegg 2026-07-24: gjennomført ytelsespass under punkt 8, se eget avsnitt der, GitHub-issue #29)
 
 ## Status
 
@@ -89,6 +89,25 @@ Offisiell Godot-dokumentasjon har generell 3D-ytelsesdokumentasjon, men mindre s
 - Reduser bildefrekvens/prosesseringsintensitet når spillet er i bakgrunnen eller pauset, for å spare batteri — et generelt mobilprinsipp som også gjelder Godot-prosjekter [23].
 - Unngå unødvendig komplekse shadere; for et rolig, stilisert 2D-eventyr uten tunge partikkeleffekter eller sanntids-lyssetting i stor skala er dette sannsynligvis et mindre problem enn i actiontunge spill, men bør likevel overvåkes med Godots innebygde profileringsverktøy («Debugger»-panelet med ytelsesmonitorer) etter hvert som innhold legges til.
 - **Anbefaling:** Dette punktet krever mer prosjektspesifikk, praktisk testing (på faktiske eldre/nyere iPhone/iPad-enheter) enn det generell research kan svare endelig på. Sett av tid til et enkelt ytelses- og batteritest-pass på reelle enheter når en spillbar vertikal skive («vertical slice») med tidslags-veksling og et par kart eksisterer, framfor å prøve å optimalisere teoretisk nå.
+
+### Oppdatering 2026-07-24: gjennomført ytelsespass (GitHub-issue #29)
+
+Den betingelsen anbefalingen over satte («når en spillbar vertikal skive... eksisterer») er nå oppfylt (M1-M3: Borg/Vágar/Saltstraumen, tidslagsbytte, dialog, oppdrag). Dette avsnittet dokumenterer det gjennomførte passet.
+
+**Viktig metodisk forbehold — dette er IKKE en fysisk enhetstest.** Et ekte iPhone/iPad eller Android-enhet var ikke tilgjengelig i denne økten. Det som faktisk ble gjort er nest best, ikke en erstatning: Chromium (via Playwright) med Googles egen mobil-emuleringsprofil («iPhone 13» — 390×664 logisk viewport, 3× pikseltetthet, touch-hendelser, mobil user-agent-streng) kombinert med CDP `Emulation.setCPUThrottlingRate` satt til 4× (samme «Mid-tier mobile»-terskel som Chrome DevTools selv bruker) for å simulere en svakere mobil-CPU enn utviklingsmaskinen. Dette fanger opp åpenbare ytelsesproblemer (høyt draw-call-tall, fps-fall, hakking ved tidslagsbytte), men bekrefter **ikke**: faktisk GPU-driveratferd på ARM-mobilbrikker, ekte batteriforbruk (kan ikke måles uten fysisk maskinvare i det hele tatt), eller Safari/WebKit-spesifikke kvirker på ekte iOS (Chromium-emulering av en iPhone-profil er fortsatt Chromium-rendering, ikke WebKit). **Et faktisk fysisk enhets-spot-check anbefales fortsatt før lansering** — dette passet lukker ikke det behovet permanent, bare det som var praktisk mulig i denne økten.
+
+**Metode:** Prosjektet ble midlertidig utstyrt med et diagnose-script (fjernet igjen etter målingen, ikke committet) som logget Godots faktiske `Performance`-monitorer (`TIME_FPS`, `RENDER_TOTAL_DRAW_CALLS_IN_FRAME`, `RENDER_TOTAL_PRIMITIVES_IN_FRAME`, `OBJECT_COUNT`, `MEMORY_STATIC`) til konsollen hvert 2. sekund — reelle motor-interne tall, ikke gjettet fra utsiden. En Playwright-styrt økt (iPhone 13-profil, 4× CPU-trottling) spilte gjennom: hovedmeny → nytt spill → flere tap-to-move-bevegelser → fire tidslagsbytter (E-tast) → forsøk på NPC-interaksjon, med skjermbilder tatt underveis for å bekrefte at klikkene faktisk traff riktige koordinater i det (mindre) mobile viewportet.
+
+**Resultater:**
+- **Bildefrekvens:** stabilt 44-51 fps gjennom hele økten, selv under 4× CPU-trottling — ingen fps-fall observert ved tidslagsbytte eller bevegelse.
+- **Draw calls:** 10 ved hovedmenyen, 14 i verdensscenen under normal utforsking, kortvarige topper til 18 under selve tidslagsbytte-overgangen (fade-effekten legger til noen få tegnekall midlertidig). Alle tall er lave i absolutt forstand — godt innenfor normal budsjett for et rolig 2D-spill med plassholder-grafikk.
+- **Objekttall/minne:** `OBJECT_COUNT` gikk fra ~1497 (hovedmeny) til ~1570 (verdensscenen lastet) og var deretter stabilt — ingen tegn til minnelekkasje over økten. `MEMORY_STATIC` ble lest som 0,0 MB gjennom hele økten, som mest sannsynlig er en artefakt av web-eksportens minnehåndtering/monitor-tilgjengelighet i akkurat denne konteksten, ikke en reell nullmåling — bør ikke tolkes som at spillet ikke bruker minne.
+- **Ingen feil:** verken `console`-feilmeldinger eller `pageerror`-hendelser i noen del av økten.
+- **Bekreftet reell interaksjon, ikke bare en stillestående skjerm:** spillerfiguren flyttet seg synlig mellom skjermbilder (tap-to-move fungerte i mobil-viewportet), og draw-call-tallet endret seg konsistent med tidslagsbytte-overgangene, som bekrefter at E-tasten faktisk trigget `EraTransitionController`.
+
+**Vurdering:** ingen konkrete ytelsesproblemer funnet innenfor det denne metoden kan fange opp. Ingen kodeendringer var nødvendige. Draw-call-tallene er så lave (14-18) at det er god margin igjen før dette blir en reell bekymring selv når placeholder-grafikken erstattes med ekte kunst under M3s kunst-fase.
+
+**Kilder/metodikk:** Playwright 1.61 med Chromium, `p.devices["iPhone 13"]`-enhetsprofil, CDP `Emulation.setCPUThrottlingRate`; Godots `Performance`-singleton-API (`Performance.get_monitor()`), offisiell Godot 4.x-funksjonalitet. Målt 2026-07-24, samme utviklermaskin som øvrige spiker i dette dokumentet.
 
 ## 9. Lagring lokalt på enheten
 
