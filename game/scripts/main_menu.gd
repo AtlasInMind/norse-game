@@ -16,10 +16,14 @@ var _quit_label: Label
 func _ready() -> void:
 	set_anchors_preset(Control.PRESET_FULL_RECT)
 
+	var menu_center := CenterContainer.new()
+	menu_center.set_anchors_preset(Control.PRESET_FULL_RECT)
+	menu_center.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	add_child(menu_center)
+
 	_menu_box = VBoxContainer.new()
-	_menu_box.set_anchors_preset(Control.PRESET_CENTER)
 	_menu_box.alignment = BoxContainer.ALIGNMENT_CENTER
-	add_child(_menu_box)
+	menu_center.add_child(_menu_box)
 	var menu_box := _menu_box
 
 	var title := Label.new()
@@ -61,10 +65,14 @@ func _ready() -> void:
 
 
 func _build_settings_panel() -> void:
+	var settings_center := CenterContainer.new()
+	settings_center.set_anchors_preset(Control.PRESET_FULL_RECT)
+	settings_center.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	add_child(settings_center)
+
 	_settings_panel = PanelContainer.new()
-	_settings_panel.set_anchors_preset(Control.PRESET_CENTER)
 	_settings_panel.visible = false
-	add_child(_settings_panel)
+	settings_center.add_child(_settings_panel)
 
 	var settings_box := VBoxContainer.new()
 	_settings_panel.add_child(settings_box)
