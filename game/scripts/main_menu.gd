@@ -97,6 +97,29 @@ func _build_settings_panel() -> void:
 	_volume_slider.value_changed.connect(SettingsSystem.set_master_volume)
 	settings_box.add_child(_volume_slider)
 
+	var accessibility_label := Label.new()
+	accessibility_label.text = "Accessibility"
+	settings_box.add_child(accessibility_label)
+
+	var text_size_label := Label.new()
+	text_size_label.text = "Text size"
+	settings_box.add_child(text_size_label)
+
+	var text_size_option := OptionButton.new()
+	text_size_option.custom_minimum_size = Vector2(0, 44)
+	for label in SettingsSystem.TEXT_SIZE_LABELS:
+		text_size_option.add_item(label)
+	text_size_option.selected = SettingsSystem.text_size_index
+	text_size_option.item_selected.connect(SettingsSystem.set_text_size_index)
+	settings_box.add_child(text_size_option)
+
+	var high_contrast_toggle := CheckButton.new()
+	high_contrast_toggle.text = "High contrast"
+	high_contrast_toggle.custom_minimum_size = Vector2(0, 44)
+	high_contrast_toggle.button_pressed = SettingsSystem.high_contrast
+	high_contrast_toggle.toggled.connect(SettingsSystem.set_high_contrast)
+	settings_box.add_child(high_contrast_toggle)
+
 	var back_button := Button.new()
 	back_button.text = "Back"
 	back_button.custom_minimum_size = Vector2(0, 44)

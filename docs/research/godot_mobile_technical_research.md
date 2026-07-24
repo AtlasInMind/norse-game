@@ -10,7 +10,7 @@ Godot 4.x (per juli 2026 er stabil gren 4.7, se versjonsnotat under) er godt egn
 
 ## Sist oppdatert
 
-2026-07-23 (tillegg 2026-07-24: gjennomført ytelsespass under punkt 8, se eget avsnitt der, GitHub-issue #29)
+2026-07-23 (tillegg 2026-07-24: gjennomført ytelsespass under punkt 8, se eget avsnitt der, GitHub-issue #29; tillegg 2026-07-24: tekststørrelse/høykontrast implementert under punkt 13, GitHub-issue #30)
 
 ## Status
 
@@ -150,6 +150,14 @@ Kjerneproblemet prosjektet må løse: mye innhold (oppdrag, dialoglinjer, histor
 - **Tekststørrelse i spillet er ikke automatisk skalerbar** — siden Godot 4.0 er fontstørrelse en egenskap på noden/temaet som bruker fonten, ikke på selve fontressursen, og Godot skalerer ikke automatisk tekststørrelse når en Control-node endrer størrelse [34]. Det finnes et prosjekt-innstilling for global tema-skala (`gui/theme/default_theme_scale`), men å tilby spilleren en egen "tekststørrelse"-innstilling i spillets meny er noe prosjektet må bygge selv (typisk: en innstilling som lagres i spillerens lagringsdata, og som ved oppstart/endring justerer font-størrelse-overstyringer i temaet eller på enkeltnoder) [34][35].
 - **Fargebruk:** Godot har ingen innebygd, automatisk fargeblindhet-simulering eller -korrigering for spillinnhold (dette finnes som utviklerverktøy i noen andre motorer/plugins, men er ikke identifisert som en offisiell Godot-spillfunksjon i denne researchen — usikkerhet merkes eksplisitt her). Generell, anerkjent tilgjengelighetspraksis (ikke Godot-spesifikk) tilsier: ikke bruk farge som eneste signal for viktig informasjon (f.eks. hvilke tidslag-elementer som er interaktive), sørg for tilstrekkelig fargekontrast i tekst/UI, og test med faktiske fargeblindhets-simuleringsverktøy (f.eks. i bildebehandlingsprogramvare) som en del av kvalitetssikringen — dette er allmenn UI/UX-praksis, ikke hentet fra Godot-dokumentasjon.
 - **Anbefaling:** Planlegg for en egen "tilgjengelighet"-fane i innstillingsmenyen fra tidlig i produksjonen (tekststørrelse-valg, høy-kontrast-palett-valg), siden dette er enklere å bygge inn i UI-arkitekturen fra start enn å legge til i etterkant, men treng ikke prioriteres i selve research-/første-prototype-fasen.
+
+### Oppdatering 2026-07-24: implementert (GitHub-issue #30)
+
+`SettingsSystem` (autoload) bygger nå en `Theme`-ressurs fra to persisterte innstillinger — `text_size_index` (Normal/Large/Largest, faktor 1.0/1.25/1.5 på `default_font_size`) og `high_contrast` (boolsk) — og tildeler den til `get_tree().root`. Siden all UI i prosjektet allerede er bygget som CanvasLayer-autoloads uten egne lokale temaoverstyringer (hovedmeny, dialog, oppdragslogg, kodex/chronicle, pausemeny), fanger Godots vanlige tema-nedarving fra rot-vinduet opp alt UI fra dette ene stedet, uten at hver enkelt skjerm måtte endres individuelt. Begge innstillingene er eksponert i det eksisterende innstillingspanelet (`main_menu.gd`) og følger samme lagre-ved-endring/last-ved-oppstart-mønster som `master_volume`.
+
+En egen gjennomgang av eksisterende UI-kode (`grep` etter `Color(`/`modulate` i `game/scripts/`) fant kun ett sted som bruker farge til å formidle tilstand — oppdragsstegs ferdig/gjenstår-status i `quest_log_ui.gd` — og der er fargen allerede kombinert med eksplisitt "[Done]"/"[Pending]"-tekst, ikke det eneste signalet. Ingen kodeendring var nødvendig for dette punktet.
+
+Verifisert i faktisk nettleser-eksport (ikke bare editoren): tekststørrelse og høykontrast endrer synlig utseende på både innstillingspanelet og hovedmenyen (bekrefter at nedarvingen faktisk fanger opp hele treet, ikke bare panelet der innstillingen ble endret), begge overlever en faktisk `page.reload()`, og den deaktiverte "Continue"-knappen forblir visuelt atskilt fra aktive knapper (ingen lys kant) selv i høykontrastmodus — et eksempel til på at tilstand ikke formidles med farge alene.
 
 ## 14. TestFlight, App Store og Google Play — overordnet prosess
 
