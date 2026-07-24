@@ -7,7 +7,7 @@ extends Node
 ## Persistérbare noder (for nå: spilleren, se player.gd) legger seg selv i
 ## PERSIST_GROUP slik at dette systemet finner dem uten en hardkodet
 ## scene-sti. Lagrer automatisk ved tidslagsbytte, ved oppdragsfremgang
-## (steg/hel fullføring), ved nye kodex-oppdagelser, og ved
+## (steg/hel fullføring), ved nye chronicle-oppdagelser, og ved
 ## avslutning/lukking av vinduet/fanen - jf. issue #19, som utvidet dette
 ## fra å kun dekke tidslag+spillerposisjon til også å dekke QuestManager og
 ## DiscoveryLog sin tilstand.
@@ -96,7 +96,7 @@ func save_game() -> void:
 
 
 ## Leser lagringsfilen (hvis den finnes og er gyldig) og bruker den til å
-## sette CurrentEra, spillerposisjon, oppdragsfremgang og kodex-oppdagelser.
+## sette CurrentEra, spillerposisjon, oppdragsfremgang og chronicle-oppdagelser.
 ## Gjør ingenting (starter friskt) hvis filen mangler eller er korrupt.
 func load_and_apply() -> void:
 	var state := _load_state()

@@ -16,11 +16,11 @@ var _quit_label: Label
 func _ready() -> void:
 	set_anchors_preset(Control.PRESET_FULL_RECT)
 
-	# "Meny"-, "Kodex"- og "Oppdrag"-knappene gir ingen mening før et spill er
-	# i gang - se _on_new_game_pressed()/_on_continue_pressed() for der de
+	# "Meny"-, "Chronicle"- og "Oppdrag"-knappene gir ingen mening før et spill
+	# er i gang - se _on_new_game_pressed()/_on_continue_pressed() for der de
 	# vises igjen (jf. issue #20/#21).
 	PauseMenuUI.set_toggle_visible(false)
-	CodexUI.set_toggle_visible(false)
+	ChronicleUI.set_toggle_visible(false)
 	QuestLogUI.set_toggle_visible(false)
 
 	var menu_center := CenterContainer.new()
@@ -120,7 +120,7 @@ func _on_continue_pressed() -> void:
 
 func _show_ingame_ui() -> void:
 	PauseMenuUI.set_toggle_visible(true)
-	CodexUI.set_toggle_visible(true)
+	ChronicleUI.set_toggle_visible(true)
 	QuestLogUI.set_toggle_visible(true)
 
 

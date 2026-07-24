@@ -1,7 +1,7 @@
 extends CanvasLayer
 
 ## Globalt pause-/menyoverlegg (autoload "PauseMenuUI"), bygget i kode etter
-## samme plassholderaktige mønster som quest_log_ui.gd/codex_ui.gd, jf.
+## samme plassholderaktige mønster som quest_log_ui.gd/chronicle_ui.gd, jf.
 ## CLAUDE.md om placeholder-grafikk fram til M3. Eneste vei fra selve
 ## spillscenen tilbake til hovedmenyen (jf. issue #20/funn 3 i
 ## docs/playtest_m2_forste_runde.md - det fantes tidligere ingen slik vei
@@ -82,14 +82,14 @@ func _unhandled_input(event: InputEvent) -> void:
 		return
 
 	# Escape skal oppleves som "gå ett steg tilbake", ikke "åpne pause-meny
-	# oppå det som allerede er åpent": hvis oppdragslogg/kodex er åpne, lukker
+	# oppå det som allerede er åpent": hvis oppdragslogg/chronicle er åpne, lukker
 	# Escape kun det panelet (samme mønster som open_menu() sin gjensidige
 	# utelukkelse - se der), i stedet for å både lukke det OG åpne
 	# pause-menyen på toppen i samme trykk.
 	if QuestLogUI.is_open():
 		QuestLogUI.close_log()
-	elif CodexUI.is_open():
-		CodexUI.close_codex()
+	elif ChronicleUI.is_open():
+		ChronicleUI.close_chronicle()
 	else:
 		toggle_menu()
 
@@ -103,9 +103,9 @@ func toggle_menu() -> void:
 
 func open_menu() -> void:
 	# Unngår flere fullskjerms-paneler oppå hverandre samtidig, samme mønster
-	# som quest_log_ui.gd/codex_ui.gd bruker seg imellom.
+	# som quest_log_ui.gd/chronicle_ui.gd bruker seg imellom.
 	QuestLogUI.close_log()
-	CodexUI.close_codex()
+	ChronicleUI.close_chronicle()
 	_volume_slider.value = SettingsSystem.master_volume
 	_barrier.visible = true
 
@@ -120,7 +120,7 @@ func is_open() -> bool:
 
 ## Brukes av main_menu.gd: "Meny"-knappen (og Escape-snarveien) gir ingen
 ## mening før et spill faktisk er i gang, jf. samme prinsipp som issue #21
-## (Kodex/Oppdrag-knappene) ble filet for å dekke.
+## (Chronicle/Oppdrag-knappene) ble filet for å dekke.
 func set_toggle_visible(visible_now: bool) -> void:
 	_toggle_button.visible = visible_now
 

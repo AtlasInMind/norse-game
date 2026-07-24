@@ -3,9 +3,10 @@ extends CanvasLayer
 ## Globalt dialog-UI (autoload "DialogueUI"), bygget i kode etter samme
 ## mønster som EraTransitionController siden UI-et er bevisst
 ## plassholderaktig fram til ekte UI-design kommer (jf. CLAUDE.md om
-## placeholder-grafikk fram til M3). Viser sikkerhetsgrad ved siden av enhver
-## historisk faktapåstand, jf. designprinsipp 6 i
-## docs/concepts/quest_opportunities.md del 1.
+## placeholder-grafikk fram til M3). Historiske faktapåstander vises som
+## vanlig prosa uten sikkerhetsgrad/kilde-ID-er (fjernet i issue #23, jf.
+## CLAUDE.md "Historical grounding is a core value - held internally, not
+## displayed to the player").
 
 var _barrier: Control
 var _speaker_label: Label
@@ -32,7 +33,7 @@ func _ready() -> void:
 	# klippes usynlig utover panelet og ned i spillverdenen bak - bekreftet
 	# under testing av dette issuet at Control.clip_contents ikke klipper
 	# synlig i denne gl_compatibility-web-eksporten (samme funn som i
-	# quest_log_ui.gd/codex_ui.gd).
+	# quest_log_ui.gd/chronicle_ui.gd).
 	panel.offset_top = -280
 	panel.offset_bottom = -16
 	_barrier.add_child(panel)
@@ -122,9 +123,6 @@ func _on_choice_pressed(choice: DialogueChoice) -> void:
 
 func _build_claim_label(claim: HistoricalClaim) -> Label:
 	var label := Label.new()
-	var certainty_text: String = HistoricalClaim.CERTAINTY_LABELS.get(claim.certainty, "?")
-	var sources_text: String = ", ".join(claim.source_ids)
-	label.text = "[%s] %s (%s)" % [certainty_text, claim.claim_text, sources_text]
+	label.text = claim.claim_text
 	label.autowrap_mode = TextServer.AUTOWRAP_WORD
-	label.modulate = HistoricalClaim.CERTAINTY_COLORS.get(claim.certainty, Color.WHITE)
 	return label

@@ -1,11 +1,18 @@
 extends CanvasLayer
 
-## Global kodex-UI (autoload "CodexUI") for oppdagede historiske
+## Global "krønike"-UI (autoload "ChronicleUI") for oppdagede historiske
 ## faktapåstander, jf. quest_opportunities.md del 1 punkt 5 (valgfri,
-## spillerstyrt fordypning i eget tempo) og punkt 6 (sikkerhetsgrad alltid
-## synlig). Bygget i kode etter samme plassholderaktige mønster som
-## dialogue_ui.gd og quest_log_ui.gd, jf. CLAUDE.md om placeholder-grafikk
-## fram til M3.
+## spillerstyrt fordypning i eget tempo). Bygget i kode etter samme
+## plassholderaktige mønster som dialogue_ui.gd og quest_log_ui.gd, jf.
+## CLAUDE.md om placeholder-grafikk fram til M3.
+##
+## Omdøpt fra "Kodex"/"CodexUI" i issue #23: navnet leste encyklopedisk/
+## kilde-aktig, som ikke passer den nye, mer atmosfæriske retningen (jf.
+## CLAUDE.md "Historical grounding is a core value - held internally, not
+## displayed to the player" og docs/DECISIONS.md sin 2026-07-24
+## "Creative reboot"-oppføring). Selve mekanikken (en logg over ting
+## spilleren har møtt, gruppert per sted) er uendret - kun presentasjonen
+## og navnet er nytt.
 ##
 ## Panelet er satt til nesten full skjermhøyde (samme løsning som
 ## quest_log_ui.gd) siden Control.clip_contents ikke klipper synlig
@@ -20,7 +27,7 @@ func _ready() -> void:
 	layer = 80
 
 	_toggle_button = Button.new()
-	_toggle_button.text = "Kodex"
+	_toggle_button.text = "Chronicle"
 	_toggle_button.custom_minimum_size = Vector2(0, 44)
 	_toggle_button.set_anchors_preset(Control.PRESET_TOP_RIGHT)
 	_toggle_button.grow_horizontal = Control.GROW_DIRECTION_BEGIN
@@ -28,7 +35,7 @@ func _ready() -> void:
 	_toggle_button.offset_right = -136
 	_toggle_button.offset_top = 16
 	_toggle_button.offset_bottom = 60
-	_toggle_button.pressed.connect(toggle_codex)
+	_toggle_button.pressed.connect(toggle_chronicle)
 	add_child(_toggle_button)
 
 	_barrier = Control.new()
@@ -49,13 +56,13 @@ func _ready() -> void:
 	panel.add_child(outer_layout)
 
 	var header := Label.new()
-	header.text = "Kodex"
+	header.text = "Chronicle"
 	outer_layout.add_child(header)
 
 	var close_button := Button.new()
 	close_button.text = "Lukk"
 	close_button.custom_minimum_size = Vector2(0, 44)
-	close_button.pressed.connect(close_codex)
+	close_button.pressed.connect(close_chronicle)
 	outer_layout.add_child(close_button)
 
 	var scroll := ScrollContainer.new()
@@ -74,17 +81,17 @@ func _unhandled_input(event: InputEvent) -> void:
 	if not _toggle_button.visible or DialogueUI.is_open():
 		return
 	if event is InputEventKey and event.pressed and not event.echo and event.keycode == KEY_K:
-		toggle_codex()
+		toggle_chronicle()
 
 
-func toggle_codex() -> void:
+func toggle_chronicle() -> void:
 	if _barrier.visible:
-		close_codex()
+		close_chronicle()
 	else:
-		open_codex()
+		open_chronicle()
 
 
-func open_codex() -> void:
+func open_chronicle() -> void:
 	# Unngår flere fullskjerms-paneler oppå hverandre samtidig.
 	QuestLogUI.close_log()
 	PauseMenuUI.close_menu()
@@ -92,7 +99,7 @@ func open_codex() -> void:
 	_barrier.visible = true
 
 
-func close_codex() -> void:
+func close_chronicle() -> void:
 	_barrier.visible = false
 
 
@@ -100,13 +107,13 @@ func is_open() -> bool:
 	return _barrier.visible
 
 
-## Brukes av main_menu.gd: "Kodex"-knappen gir ingen mening før et spill
+## Brukes av main_menu.gd: "Chronicle"-knappen gir ingen mening før et spill
 ## faktisk er i gang (jf. issue #21 - samme prinsipp som
 ## PauseMenuUI.set_toggle_visible() ble innført for i issue #20).
 func set_toggle_visible(visible_now: bool) -> void:
 	_toggle_button.visible = visible_now
 	if not visible_now:
-		close_codex()
+		close_chronicle()
 
 
 func _on_claim_discovered(_claim: HistoricalClaim) -> void:
@@ -146,9 +153,6 @@ func _refresh() -> void:
 
 func _build_claim_entry(claim: HistoricalClaim) -> Label:
 	var label := Label.new()
-	var certainty_text: String = HistoricalClaim.CERTAINTY_LABELS.get(claim.certainty, "?")
-	var sources_text: String = ", ".join(claim.source_ids)
-	label.text = "[%s] %s (%s)" % [certainty_text, claim.claim_text, sources_text]
+	label.text = claim.claim_text
 	label.autowrap_mode = TextServer.AUTOWRAP_WORD
-	label.modulate = HistoricalClaim.CERTAINTY_COLORS.get(claim.certainty, Color.WHITE)
 	return label

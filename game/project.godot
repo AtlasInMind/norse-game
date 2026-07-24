@@ -25,7 +25,7 @@ DialogueUI="*res://scripts/dialogue_ui.gd"
 SettingsSystem="*res://scripts/settings_system.gd"
 QuestLogUI="*res://scripts/quest_log_ui.gd"
 DiscoveryLog="*res://scripts/discovery_log.gd"
-CodexUI="*res://scripts/codex_ui.gd"
+ChronicleUI="*res://scripts/chronicle_ui.gd"
 PauseMenuUI="*res://scripts/pause_menu_ui.gd"
 
 [rendering]

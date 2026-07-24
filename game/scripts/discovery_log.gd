@@ -4,7 +4,7 @@ extends Node
 ## denne økten (autoload "DiscoveryLog"), jf. "oppdagelses"-logg-prinsippet i
 ## docs/concepts/quest_opportunities.md del 1 punkt 5: dypere historisk
 ## kontekst skal være tilgjengelig i eget tempo, ikke bare inline i dialogen
-## der den først vises. Rent tilstandshold, uten UI - se codex_ui.gd for
+## der den først vises. Rent tilstandshold, uten UI - se chronicle_ui.gd for
 ## presentasjonen, etter samme adskillelse som QuestManager/QuestLogUI.
 
 signal claim_discovered(claim: HistoricalClaim)
@@ -13,7 +13,7 @@ var _discovered_claims: Array[HistoricalClaim] = []
 
 
 ## Brukes av "Nytt spill" i hovedmenyen, jf. QuestManager.reset() - uten dette
-## ville kodex-oppføringer fra en tidligere gjennomspilling i samme
+## ville chronicle-oppføringer fra en tidligere gjennomspilling i samme
 ## nettleserøkt feilaktig fortsatt vises etter at spilleren startet på nytt.
 func reset() -> void:
 	_discovered_claims.clear()
