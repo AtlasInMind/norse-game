@@ -6,8 +6,11 @@ extends Node
 ##
 ## Persistérbare noder (for nå: spilleren, se player.gd) legger seg selv i
 ## PERSIST_GROUP slik at dette systemet finner dem uten en hardkodet
-## scene-sti. Lagrer automatisk ved tidslagsbytte og ved
-## avslutning/lukking av vinduet/fanen.
+## scene-sti. Lagrer automatisk ved tidslagsbytte, ved oppdragsfremgang
+## (steg/hel fullføring), ved nye kodex-oppdagelser, og ved
+## avslutning/lukking av vinduet/fanen - jf. issue #19, som utvidet dette
+## fra å kun dekke tidslag+spillerposisjon til også å dekke QuestManager og
+## DiscoveryLog sin tilstand.
 
 const SAVE_PATH := "user://savegame.save"
 const SAVE_PATH_TMP := "user://savegame.save.tmp"
@@ -22,6 +25,9 @@ var _loading := false
 
 func _ready() -> void:
 	CurrentEra.era_changed.connect(_on_era_changed)
+	QuestManager.quest_step_completed.connect(_on_quest_progress_changed)
+	QuestManager.quest_completed.connect(_on_quest_completed)
+	DiscoveryLog.claim_discovered.connect(_on_claim_discovered)
 
 
 func _notification(what: int) -> void:
@@ -30,6 +36,22 @@ func _notification(what: int) -> void:
 
 
 func _on_era_changed(_new_era: Era.Type) -> void:
+	_autosave()
+
+
+func _on_quest_progress_changed(_quest: Quest, _step_index: int) -> void:
+	_autosave()
+
+
+func _on_quest_completed(_quest: Quest) -> void:
+	_autosave()
+
+
+func _on_claim_discovered(_claim: HistoricalClaim) -> void:
+	_autosave()
+
+
+func _autosave() -> void:
 	if _loading:
 		return
 	save_game()
@@ -74,8 +96,8 @@ func save_game() -> void:
 
 
 ## Leser lagringsfilen (hvis den finnes og er gyldig) og bruker den til å
-## sette CurrentEra og spillerposisjon. Gjør ingenting (starter friskt) hvis
-## filen mangler eller er korrupt.
+## sette CurrentEra, spillerposisjon, oppdragsfremgang og kodex-oppdagelser.
+## Gjør ingenting (starter friskt) hvis filen mangler eller er korrupt.
 func load_and_apply() -> void:
 	var state := _load_state()
 	if state.is_empty():
@@ -90,6 +112,12 @@ func load_and_apply() -> void:
 	var pos_value: Variant = state.get("player_position")
 	var has_valid_position := typeof(pos_value) == TYPE_DICTIONARY
 
+	var quest_progress_value: Variant = state.get("quest_progress")
+	var has_valid_quest_progress := typeof(quest_progress_value) == TYPE_DICTIONARY
+
+	var discovered_claims_value: Variant = state.get("discovered_claims")
+	var has_valid_discovered_claims := typeof(discovered_claims_value) == TYPE_ARRAY
+
 	_loading = true
 
 	if has_valid_era:
@@ -103,12 +131,23 @@ func load_and_apply() -> void:
 			float(pos.get("y", player.global_position.y))
 		)
 
+	# Trygt å kalle før location_era_layers.gd registrerer scenens quests på
+	# nytt hos QuestManager - se kommentaren i quest_manager.gd sin
+	# register_quest().
+	if has_valid_quest_progress:
+		QuestManager.apply_save_state(quest_progress_value)
+
+	if has_valid_discovered_claims:
+		DiscoveryLog.apply_save_state(discovered_claims_value)
+
 	_loading = false
 
 
 func _collect_state() -> Dictionary:
 	var state := {
 		"current_era": CurrentEra.current_era,
+		"quest_progress": QuestManager.get_save_state(),
+		"discovered_claims": DiscoveryLog.get_save_state(),
 	}
 	var player := _find_persisted_player()
 	if player:
