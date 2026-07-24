@@ -16,7 +16,7 @@ var _quit_label: Label
 func _ready() -> void:
 	set_anchors_preset(Control.PRESET_FULL_RECT)
 
-	# "Meny"-, "Chronicle"- og "Oppdrag"-knappene gir ingen mening før et spill
+	# "Menu"-, "Chronicle"- og "Quests"-knappene gir ingen mening før et spill
 	# er i gang - se _on_new_game_pressed()/_on_continue_pressed() for der de
 	# vises igjen (jf. issue #20/#21).
 	PauseMenuUI.set_toggle_visible(false)
@@ -39,26 +39,26 @@ func _ready() -> void:
 	menu_box.add_child(title)
 
 	var new_game_button := Button.new()
-	new_game_button.text = "Nytt spill"
+	new_game_button.text = "New Game"
 	new_game_button.custom_minimum_size = Vector2(0, 44)
 	new_game_button.pressed.connect(_on_new_game_pressed)
 	menu_box.add_child(new_game_button)
 
 	_continue_button = Button.new()
-	_continue_button.text = "Fortsett"
+	_continue_button.text = "Continue"
 	_continue_button.custom_minimum_size = Vector2(0, 44)
 	_continue_button.disabled = not SaveSystem.has_save()
 	_continue_button.pressed.connect(_on_continue_pressed)
 	menu_box.add_child(_continue_button)
 
 	var settings_button := Button.new()
-	settings_button.text = "Innstillinger"
+	settings_button.text = "Settings"
 	settings_button.custom_minimum_size = Vector2(0, 44)
 	settings_button.pressed.connect(_on_settings_pressed)
 	menu_box.add_child(settings_button)
 
 	var quit_button := Button.new()
-	quit_button.text = "Avslutt"
+	quit_button.text = "Quit"
 	quit_button.custom_minimum_size = Vector2(0, 44)
 	quit_button.pressed.connect(_on_quit_pressed)
 	menu_box.add_child(quit_button)
@@ -85,7 +85,7 @@ func _build_settings_panel() -> void:
 	_settings_panel.add_child(settings_box)
 
 	var volume_label := Label.new()
-	volume_label.text = "Lydvolum"
+	volume_label.text = "Volume"
 	settings_box.add_child(volume_label)
 
 	_volume_slider = HSlider.new()
@@ -98,7 +98,7 @@ func _build_settings_panel() -> void:
 	settings_box.add_child(_volume_slider)
 
 	var back_button := Button.new()
-	back_button.text = "Tilbake"
+	back_button.text = "Back"
 	back_button.custom_minimum_size = Vector2(0, 44)
 	back_button.pressed.connect(_on_settings_back_pressed)
 	settings_box.add_child(back_button)
@@ -140,7 +140,7 @@ func _on_quit_pressed() -> void:
 		# med window.open() — det finnes ingen pålitelig "avslutt"-handling
 		# her, så vi informerer spilleren i stedet for å late som et
 		# programmatisk quit() ville gjort noe.
-		_quit_label.text = "Du kan trygt lukke denne fanen nå."
+		_quit_label.text = "You can safely close this tab now."
 		_quit_label.visible = true
 	else:
 		get_tree().quit()

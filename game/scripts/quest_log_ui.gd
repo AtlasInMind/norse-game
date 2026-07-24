@@ -17,7 +17,7 @@ func _ready() -> void:
 	layer = 80
 
 	_toggle_button = Button.new()
-	_toggle_button.text = "Oppdrag"
+	_toggle_button.text = "Quests"
 	_toggle_button.custom_minimum_size = Vector2(0, 44)
 	_toggle_button.set_anchors_preset(Control.PRESET_TOP_RIGHT)
 	_toggle_button.grow_horizontal = Control.GROW_DIRECTION_BEGIN
@@ -51,11 +51,11 @@ func _ready() -> void:
 	panel.add_child(outer_layout)
 
 	var header := Label.new()
-	header.text = "Oppdragslogg"
+	header.text = "Quest Log"
 	outer_layout.add_child(header)
 
 	var close_button := Button.new()
-	close_button.text = "Lukk"
+	close_button.text = "Close"
 	close_button.custom_minimum_size = Vector2(0, 44)
 	close_button.pressed.connect(close_log)
 	outer_layout.add_child(close_button)
@@ -103,7 +103,7 @@ func is_open() -> bool:
 	return _barrier.visible
 
 
-## Brukes av main_menu.gd: "Oppdrag"-knappen gir ingen mening før et spill
+## Brukes av main_menu.gd: "Quests"-knappen gir ingen mening før et spill
 ## faktisk er i gang (jf. issue #21 - samme prinsipp som
 ## PauseMenuUI.set_toggle_visible() ble innført for i issue #20).
 func set_toggle_visible(visible_now: bool) -> void:
@@ -130,7 +130,7 @@ func _refresh() -> void:
 
 	if quests.is_empty():
 		var empty_label := Label.new()
-		empty_label.text = "Ingen aktive oppdrag."
+		empty_label.text = "No active quests."
 		_quests_box.add_child(empty_label)
 		return
 
@@ -155,7 +155,7 @@ func _build_quest_entry(quest: Quest) -> Control:
 		var step: QuestStep = quest.steps[i]
 		var step_label := Label.new()
 		var is_done := i < done_count
-		step_label.text = "[%s] %s" % ["Fullført" if is_done else "Gjenstår", step.description]
+		step_label.text = "[%s] %s" % ["Done" if is_done else "Pending", step.description]
 		step_label.modulate = STEP_DONE_COLOR if is_done else STEP_PENDING_COLOR
 		step_label.autowrap_mode = TextServer.AUTOWRAP_WORD
 		entry.add_child(step_label)

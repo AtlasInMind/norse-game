@@ -61,7 +61,7 @@ func has_save() -> bool:
 	return FileAccess.file_exists(SAVE_PATH)
 
 
-## Brukes av "Nytt spill" i hovedmenyen for å sikre at en gjenværende
+## Brukes av "New Game" i hovedmenyen for å sikre at en gjenværende
 ## lagringsfil fra en tidligere økt ikke lastes inn igjen av
 ## location_era_layers.gd sitt ubetingede load_and_apply()-kall.
 func delete_save() -> void:

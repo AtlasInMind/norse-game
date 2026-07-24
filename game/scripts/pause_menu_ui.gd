@@ -16,7 +16,7 @@ func _ready() -> void:
 	layer = 80
 
 	_toggle_button = Button.new()
-	_toggle_button.text = "Meny"
+	_toggle_button.text = "Menu"
 	_toggle_button.custom_minimum_size = Vector2(0, 44)
 	_toggle_button.set_anchors_preset(Control.PRESET_TOP_LEFT)
 	_toggle_button.offset_left = 16
@@ -43,18 +43,18 @@ func _ready() -> void:
 	panel.add_child(layout)
 
 	var header := Label.new()
-	header.text = "Meny"
+	header.text = "Menu"
 	header.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	layout.add_child(header)
 
 	var resume_button := Button.new()
-	resume_button.text = "Fortsett spilling"
+	resume_button.text = "Resume"
 	resume_button.custom_minimum_size = Vector2(0, 44)
 	resume_button.pressed.connect(close_menu)
 	layout.add_child(resume_button)
 
 	var volume_label := Label.new()
-	volume_label.text = "Lydvolum"
+	volume_label.text = "Volume"
 	layout.add_child(volume_label)
 
 	_volume_slider = HSlider.new()
@@ -66,7 +66,7 @@ func _ready() -> void:
 	layout.add_child(_volume_slider)
 
 	var main_menu_button := Button.new()
-	main_menu_button.text = "Tilbake til hovedmeny"
+	main_menu_button.text = "Back to Main Menu"
 	main_menu_button.custom_minimum_size = Vector2(0, 44)
 	main_menu_button.pressed.connect(_on_main_menu_pressed)
 	layout.add_child(main_menu_button)
@@ -118,15 +118,15 @@ func is_open() -> bool:
 	return _barrier.visible
 
 
-## Brukes av main_menu.gd: "Meny"-knappen (og Escape-snarveien) gir ingen
+## Brukes av main_menu.gd: "Menu"-knappen (og Escape-snarveien) gir ingen
 ## mening før et spill faktisk er i gang, jf. samme prinsipp som issue #21
-## (Chronicle/Oppdrag-knappene) ble filet for å dekke.
+## (Chronicle/Quests-knappene) ble filet for å dekke.
 func set_toggle_visible(visible_now: bool) -> void:
 	_toggle_button.visible = visible_now
 
 
 func _on_main_menu_pressed() -> void:
-	# Lagrer eksplisitt før scenebytte, slik at "Fortsett" fra hovedmenyen
+	# Lagrer eksplisitt før scenebytte, slik at "Continue" fra hovedmenyen
 	# gjenopptar nøyaktig der spilleren valgte å gå tilbake - ikke bare ved
 	# forrige tidslagsbytte/oppdragsfremgang (se save_system.gd sine
 	# autosave-utløsere).

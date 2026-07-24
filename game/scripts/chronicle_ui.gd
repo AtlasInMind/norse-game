@@ -60,7 +60,7 @@ func _ready() -> void:
 	outer_layout.add_child(header)
 
 	var close_button := Button.new()
-	close_button.text = "Lukk"
+	close_button.text = "Close"
 	close_button.custom_minimum_size = Vector2(0, 44)
 	close_button.pressed.connect(close_chronicle)
 	outer_layout.add_child(close_button)
@@ -128,7 +128,7 @@ func _refresh() -> void:
 	var claims := DiscoveryLog.get_discovered_claims()
 	if claims.is_empty():
 		var empty_label := Label.new()
-		empty_label.text = "Ingen oppdagelser ennå."
+		empty_label.text = "Nothing recorded yet."
 		_entries_box.add_child(empty_label)
 		return
 

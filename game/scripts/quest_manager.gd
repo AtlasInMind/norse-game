@@ -16,7 +16,7 @@ var _completed_step_counts: Dictionary = {}
 var _completed_quest_ids: Dictionary = {}
 
 
-## Brukes av "Nytt spill" i hovedmenyen: uten dette ville en Quest-Resource
+## Brukes av "New Game" i hovedmenyen: uten dette ville en Quest-Resource
 ## som allerede er fullført tidligere i samme nettleserøkt (Godot cacher/
 ## gjenbruker samme instans ved gjentatt lasting av samme .tres-fil) fortsatt
 ## telle som registrert/fullført i register_quest() sin duplikatsjekk under.

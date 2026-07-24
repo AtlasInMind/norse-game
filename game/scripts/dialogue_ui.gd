@@ -91,7 +91,7 @@ func start_dialogue(node: DialogueNode) -> void:
 		child.queue_free()
 	if node.choices.is_empty():
 		var close_button := Button.new()
-		close_button.text = "Lukk"
+		close_button.text = "Close"
 		# Minst ca. 44x44 punkter, jf. anbefalingen for berøringsvennlige
 		# knapper i godot_mobile_technical_research.md punkt 7.
 		close_button.custom_minimum_size = Vector2(0, 44)

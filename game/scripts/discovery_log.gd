@@ -12,7 +12,7 @@ signal claim_discovered(claim: HistoricalClaim)
 var _discovered_claims: Array[HistoricalClaim] = []
 
 
-## Brukes av "Nytt spill" i hovedmenyen, jf. QuestManager.reset() - uten dette
+## Brukes av "New Game" i hovedmenyen, jf. QuestManager.reset() - uten dette
 ## ville chronicle-oppføringer fra en tidligere gjennomspilling i samme
 ## nettleserøkt feilaktig fortsatt vises etter at spilleren startet på nytt.
 func reset() -> void:

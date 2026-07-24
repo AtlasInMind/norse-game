@@ -4,7 +4,7 @@ extends Node
 ## Lagrer/laster brukerpreferanser (i dag: lydvolum) lokalt, etter samme
 ## Dictionary -> JSON -> FileAccess-mønster som save_system.gd bruker for
 ## spillfremgang — men i en egen fil, siden innstillinger og spillfremgang er
-## to ulike ting (innstillinger skal f.eks. overleve en "Nytt spill").
+## to ulike ting (innstillinger skal f.eks. overleve en "New Game").
 
 const SETTINGS_PATH := "user://settings.save"
 const MASTER_BUS_NAME := "Master"

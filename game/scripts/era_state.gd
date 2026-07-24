@@ -18,7 +18,7 @@ func set_era(new_era: Era.Type) -> void:
 	era_changed.emit(current_era)
 
 
-## Brukes av "Nytt spill" i hovedmenyen. Setter tilstanden direkte (uten
+## Brukes av "New Game" i hovedmenyen. Setter tilstanden direkte (uten
 ## signal) siden dette skjer før lokasjonsscenen — og dermed alle lyttere på
 ## era_changed — i det hele tatt er lastet.
 func reset() -> void:
