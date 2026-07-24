@@ -16,9 +16,11 @@ Førstepass-research er nå fullført for 11 av 12 research-temaer (unntak: `dua
 
 **Oppdatering 2026-07-24 (M2 spilltest):** `docs/playtest_m2_forste_runde.md` dokumenterer første spilltestrunde av den spillbare vertikale skiven pluss M2-kjernesystemene (issue #18), kjørt i faktisk nettleser-eksport. Ingen blokkerende feil funnet i selve spillbarheten; en reell sentrerings-/klikkeblokkerings-feil i hovedmenyen ble funnet og rettet i samme runde. Bekrefter at det åpne spørsmålet om manglende lasteskjerm i `research/web_export_findings.md` fortsatt gjelder med faktisk spillinnhold, og avdekket at oppdrags-/kodex-fremgang (i motsetning til tidslag/spillerposisjon) ikke overlever en reell nettleser-omlasting ennå — se dokumentet for full funnliste og foreslåtte oppfølgingsissues.
 
+**Oppdatering 2026-07-25 (M4 spilltest, GitHub-issue #31):** `docs/playtest_m4_second_round.md` (skrevet på engelsk, jf. språkbeslutningen i `CLAUDE.md`) dokumenterer en andre, bredere spilltestrunde i faktisk nettleser-eksport — nå alle tre lokasjoner/oppdrag (Borg/Vágar/Saltstraumen) i begge tidslag, ikke bare ett oppdrag som i M2-runden. Ingen blokkerende feil funnet: hele løpet (hovedmeny → innstillinger → nytt spill → alle tre oppdrag fullført → kodex/oppdragslogg → full nettleser-omlasting → fortsett → pausemeny → tilbake til hovedmeny) fungerte uten en eneste konsoll- eller sidefeil. Bekreftet spesifikt at M3-omskrivingen (engelsk tekst, ny stemme, kildehenvisning-fri dialog/kodex) holder seg i faktisk spill uten regresjon, og at M4s tilgjengelighetsinnstillinger (issue #30) fungerer sammen med resten av økten, ikke bare isolert. To mindre, ikke-blokkerende funn notert for eventuell fremtidig polering (tilgjengelighetsinnstillinger ikke tilgjengelig fra pausemenyen; første klikk på en NPC/gjenstand spilleren ikke står ved siden av kun flytter spilleren, åpner ikke dialog før neste klikk — bekreftet eksisterende, forventet design, ikke en ny regresjon).
+
 ## Sist oppdatert
 
-2026-07-24
+2026-07-25
 
 ## Status
 
