@@ -93,6 +93,7 @@ func _on_new_game_pressed() -> void:
 	SaveSystem.delete_save()
 	QuestManager.reset()
 	CurrentEra.reset()
+	DiscoveryLog.reset()
 	get_tree().change_scene_to_file(LOCATION_SCENE_PATH)
 
 

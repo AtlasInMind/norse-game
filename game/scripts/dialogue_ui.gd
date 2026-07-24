@@ -7,20 +7,6 @@ extends CanvasLayer
 ## historisk faktapåstand, jf. designprinsipp 6 i
 ## docs/concepts/quest_opportunities.md del 1.
 
-const CERTAINTY_LABELS := {
-	HistoricalClaim.Certainty.ESTABLISHED: "Fastslått",
-	HistoricalClaim.Certainty.PROBABLE: "Sannsynlig",
-	HistoricalClaim.Certainty.DEBATED: "Omdiskutert",
-	HistoricalClaim.Certainty.MYTH: "Myte",
-}
-
-const CERTAINTY_COLORS := {
-	HistoricalClaim.Certainty.ESTABLISHED: Color(0.4, 0.75, 0.45),
-	HistoricalClaim.Certainty.PROBABLE: Color(0.8, 0.8, 0.35),
-	HistoricalClaim.Certainty.DEBATED: Color(0.85, 0.6, 0.25),
-	HistoricalClaim.Certainty.MYTH: Color(0.85, 0.35, 0.35),
-}
-
 var _barrier: Control
 var _speaker_label: Label
 var _text_label: Label
@@ -88,6 +74,7 @@ func start_dialogue(node: DialogueNode) -> void:
 		child.queue_free()
 	for claim in node.related_claims:
 		_claims_box.add_child(_build_claim_label(claim))
+		DiscoveryLog.register_claim(claim)
 
 	if not node.completion_condition.is_empty():
 		QuestManager.mark_condition(node.completion_condition)
@@ -124,9 +111,9 @@ func _on_choice_pressed(choice: DialogueChoice) -> void:
 
 func _build_claim_label(claim: HistoricalClaim) -> Label:
 	var label := Label.new()
-	var certainty_text: String = CERTAINTY_LABELS.get(claim.certainty, "?")
+	var certainty_text: String = HistoricalClaim.CERTAINTY_LABELS.get(claim.certainty, "?")
 	var sources_text: String = ", ".join(claim.source_ids)
 	label.text = "[%s] %s (%s)" % [certainty_text, claim.claim_text, sources_text]
 	label.autowrap_mode = TextServer.AUTOWRAP_WORD
-	label.modulate = CERTAINTY_COLORS.get(claim.certainty, Color.WHITE)
+	label.modulate = HistoricalClaim.CERTAINTY_COLORS.get(claim.certainty, Color.WHITE)
 	return label

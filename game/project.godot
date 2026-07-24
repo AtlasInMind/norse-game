@@ -24,6 +24,8 @@ QuestManager="*res://scripts/quest_manager.gd"
 DialogueUI="*res://scripts/dialogue_ui.gd"
 SettingsSystem="*res://scripts/settings_system.gd"
 QuestLogUI="*res://scripts/quest_log_ui.gd"
+DiscoveryLog="*res://scripts/discovery_log.gd"
+CodexUI="*res://scripts/codex_ui.gd"
 
 [rendering]
 
