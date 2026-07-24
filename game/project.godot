@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 CurrentEra="*res://scripts/era_state.gd"
+EraTransitionController="*res://scripts/era_transition_controller.gd"
 
 [rendering]
 
