@@ -26,7 +26,14 @@ func _ready() -> void:
 	panel.set_anchors_preset(Control.PRESET_BOTTOM_WIDE)
 	panel.offset_left = 16
 	panel.offset_right = -16
-	panel.offset_top = -220
+	# Høyden er satt romslig nok til å romme det lengste reelle
+	# innholdstilfellet (tekst + 1 HistoricalClaim + 2 valgknapper à 44pt)
+	# uten at det overskytende innholdet ScrollContainer skulle håndtert,
+	# klippes usynlig utover panelet og ned i spillverdenen bak - bekreftet
+	# under testing av dette issuet at Control.clip_contents ikke klipper
+	# synlig i denne gl_compatibility-web-eksporten (samme funn som i
+	# quest_log_ui.gd/codex_ui.gd).
+	panel.offset_top = -280
 	panel.offset_bottom = -16
 	_barrier.add_child(panel)
 
@@ -84,12 +91,16 @@ func start_dialogue(node: DialogueNode) -> void:
 	if node.choices.is_empty():
 		var close_button := Button.new()
 		close_button.text = "Lukk"
+		# Minst ca. 44x44 punkter, jf. anbefalingen for berøringsvennlige
+		# knapper i godot_mobile_technical_research.md punkt 7.
+		close_button.custom_minimum_size = Vector2(0, 44)
 		close_button.pressed.connect(close_dialogue)
 		_choices_box.add_child(close_button)
 	else:
 		for choice in node.choices:
 			var button := Button.new()
 			button.text = choice.choice_text
+			button.custom_minimum_size = Vector2(0, 44)
 			button.pressed.connect(_on_choice_pressed.bind(choice))
 			_choices_box.add_child(button)
 
