@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="HistoricalClaim" format=3]
+
+[ext_resource type="Script" path="res://scripts/historical_claim.gd" id="1_tf37k"]
+
+[resource]
+script = ExtResource("1_tf37k")
+claim_text = "På Vestvågøy i Lofoten pløyde en bonde i 1981 opp restene av et 83 meter langt høvdinghus på sitt eget jorde - ikke gjennom et planlagt forskningsprosjekt, men ved vanlig jordbruksarbeid."
+era = 1
+place = "Borg"
+certainty = 0
+source_ids = Array[String](["SRC-HIST-085", "SRC-HIST-063"])

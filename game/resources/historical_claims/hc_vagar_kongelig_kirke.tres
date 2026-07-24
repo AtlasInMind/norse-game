@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="HistoricalClaim" format=3]
+
+[ext_resource type="Script" path="res://scripts/historical_claim.gd" id="1_tf37k"]
+
+[resource]
+script = ExtResource("1_tf37k")
+claim_text = "Kong Øystein 1. Magnusson lot bygge kirke og rorbuer i Vágar tidlig på 1100-tallet, og stedet ble navngitt som ett av landets tre viktigste handelssteder i en kongelig forordning fra 1384 - godt dokumentert, ikke bare en historie folk forteller."
+era = 1
+place = "Vágar/Kabelvåg"
+certainty = 0
+source_ids = Array[String](["SRC-HIST-095", "SRC-HIST-097"])

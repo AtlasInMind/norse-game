@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="DialogueNode" format=3]
+
+[ext_resource type="Script" path="res://scripts/dialogue_node.gd" id="1_dn"]
+[ext_resource type="Script" path="res://scripts/historical_claim.gd" id="2_hcscript"]
+[ext_resource type="Resource" path="res://resources/historical_claims/hc_vagar_sagaomtale.tres" id="3_claim"]
+[ext_resource type="Script" path="res://scripts/dialogue_choice.gd" id="4_dcscript"]
+[ext_resource type="Resource" path="res://resources/dialogue/dc_torolv_choice_dokumentert.tres" id="5_choice_dokumentert"]
+[ext_resource type="Resource" path="res://resources/dialogue/dc_torolv_choice_fortelling.tres" id="6_choice_fortelling"]
+
+[resource]
+script = ExtResource("1_dn")
+speaker = "Torolv"
+text = "Sagaene nevner Vágar helt tilbake på 800- og 900-tallet som handels- og fiskevær. Men husk - sagaene ble skrevet ned lenge etter, så de eldste detaljene er usikre."
+era = 1
+related_claims = Array[ExtResource("2_hcscript")]([ExtResource("3_claim")])
+choices = Array[ExtResource("4_dcscript")]([ExtResource("5_choice_dokumentert"), ExtResource("6_choice_fortelling")])

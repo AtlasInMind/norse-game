@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="DialogueNode" format=3]
+
+[ext_resource type="Script" path="res://scripts/dialogue_node.gd" id="1_dn"]
+[ext_resource type="Script" path="res://scripts/dialogue_choice.gd" id="2_dcscript"]
+[ext_resource type="Resource" path="res://resources/dialogue/dc_torolv_ask_kirke.tres" id="3_choice"]
+
+[resource]
+script = ExtResource("1_dn")
+speaker = "Torolv"
+text = "Dokumentert, ja, i den forstand at det står skrevet - i sagaene. Men de ble satt ned på pergament lenge etter min tid, av folk som aldri var her. Skrevet ned, men ikke sett med egne øyne av den som skrev det."
+era = 1
+choices = Array[ExtResource("2_dcscript")]([ExtResource("3_choice")])

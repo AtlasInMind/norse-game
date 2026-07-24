@@ -30,11 +30,40 @@ func _unhandled_input(event: InputEvent) -> void:
 	else:
 		return
 
-	if not _nav_map_ready:
+	if not _nav_map_ready or DialogueUI.is_open():
 		return
 
 	var world_position := get_viewport().get_canvas_transform().affine_inverse() * screen_position
+
+	# Klikk velger HVILKET objekt som menes (nærmest klikkpunktet), men
+	# selve interaksjonen krever at SPILLEREN faktisk står nær nok - ellers
+	# kunne man samtale med/undersøke hva som helst hvor som helst på det
+	# statiske, fast-zoomede kartet uten å bevege seg i det hele tatt. Er
+	# spilleren for langt unna, tolkes klikket i stedet som et vanlig
+	# bevegelsesmål (som naturlig fører spilleren nærmere objektet).
+	var interactable: Variant = _find_interactable(world_position)
+	if interactable and global_position.distance_to(interactable.global_position) <= interactable.interact_radius:
+		interactable.interact()
+		return
+
 	_nav_agent.target_position = world_position
+
+
+## Finner nærmeste synlige NPC/miljøobjekt (gruppen "interactables", se
+## npc.gd/interactable_object.gd) innenfor sin interact_radius fra et
+## klikk/trykk. Utypet returverdi siden Npc og InteractableObject ikke deler
+## en felles basetype for interact_radius/interact().
+func _find_interactable(world_position: Vector2) -> Variant:
+	var nearest: Variant = null
+	var nearest_distance := INF
+	for node: Variant in get_tree().get_nodes_in_group("interactables"):
+		if not node.visible:
+			continue
+		var distance: float = node.global_position.distance_to(world_position)
+		if distance <= node.interact_radius and distance < nearest_distance:
+			nearest = node
+			nearest_distance = distance
+	return nearest
 
 
 func _physics_process(_delta: float) -> void:

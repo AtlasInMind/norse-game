@@ -3,6 +3,18 @@
 [ext_resource type="TileSet" path="res://tilesets/placeholder_tileset.tres" id="1_ycrke"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="2_7oy5a"]
 [ext_resource type="Script" path="res://scripts/location_era_layers.gd" id="3_lrera"]
+[ext_resource type="PackedScene" path="res://scenes/npc.tscn" id="10_npcscene"]
+[ext_resource type="PackedScene" path="res://scenes/interactable_object.tscn" id="11_objscene"]
+[ext_resource type="Script" path="res://scripts/quest.gd" id="12_questscript"]
+[ext_resource type="Resource" path="res://resources/quests/quest_borg_hovdingsete.tres" id="13_questborg"]
+[ext_resource type="Resource" path="res://resources/quests/quest_vagar_fiskevaeret.tres" id="14_questvagar"]
+[ext_resource type="Resource" path="res://resources/quests/quest_saltstraumen_graven.tres" id="15_questsalt"]
+[ext_resource type="Resource" path="res://resources/dialogue/dn_gunnhild_greeting.tres" id="20_dngunnhild"]
+[ext_resource type="Resource" path="res://resources/dialogue/dn_sigrun_greeting.tres" id="21_dnsigrun"]
+[ext_resource type="Resource" path="res://resources/dialogue/dn_torolv_greeting.tres" id="22_dntorolv"]
+[ext_resource type="Resource" path="res://resources/dialogue/dn_bjorn_greeting.tres" id="23_dnbjorn"]
+[ext_resource type="Resource" path="res://resources/historical_claims/hc_borg_maktsenter.tres" id="24_hcborgmakt"]
+[ext_resource type="Resource" path="res://resources/historical_claims/hc_saltstraumen_vikinggrav.tres" id="25_hcsalt"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_ycrke"]
 vertices = PackedVector2Array(128, 0, 448, 0, 448, 288, 128, 288)
@@ -13,6 +25,7 @@ radius = 8.0
 
 [node name="VerticalSliceLocation" type="Node2D" unique_id=644122541]
 script = ExtResource("3_lrera")
+quests = Array[ExtResource("12_questscript")]([ExtResource("13_questborg"), ExtResource("14_questvagar"), ExtResource("15_questsalt")])
 
 [node name="GroundLayer" type="TileMapLayer" parent="." unique_id=2101694052]
 tile_map_data = PackedByteArray("AAAAAAAAAAABAAAAAAAAAAEAAAABAAAAAAAAAAIAAAABAAAAAAAAAAMAAAABAAAAAAAAAAQAAAABAAAAAAAAAAUAAAABAAAAAAAAAAYAAAABAAAAAAAAAAcAAAABAAAAAAAAAAgAAAABAAAAAAABAAAAAAABAAAAAAABAAEAAAABAAAAAAABAAIAAAABAAAAAAABAAMAAAABAAAAAAABAAQAAAABAAAAAAABAAUAAAABAAAAAAABAAYAAAABAAAAAAABAAcAAAABAAAAAAABAAgAAAABAAAAAAACAAAAAAABAAAAAAACAAEAAAABAAAAAAACAAIAAAABAAAAAAACAAMAAAABAAAAAAACAAQAAAABAAAAAAACAAUAAAABAAAAAAACAAYAAAABAAAAAAACAAcAAAABAAAAAAACAAgAAAABAAAAAAADAAAAAAABAAAAAAADAAEAAAABAAAAAAADAAIAAAABAAAAAAADAAMAAAABAAAAAAADAAQAAAABAAAAAAADAAUAAAABAAAAAAADAAYAAAABAAAAAAADAAcAAAABAAAAAAADAAgAAAABAAAAAAAEAAAAAAAAAAAAAAAEAAEAAAAAAAAAAAAEAAIAAAAAAAAAAAAEAAMAAAAAAAAAAAAEAAQAAAACAAAAAAAEAAUAAAAAAAAAAAAEAAYAAAAAAAAAAAAEAAcAAAAAAAAAAAAEAAgAAAAAAAAAAAAFAAAAAAAAAAAAAAAFAAEAAAAAAAAAAAAFAAIAAAAAAAAAAAAFAAMAAAAAAAAAAAAFAAQAAAACAAAAAAAFAAUAAAAAAAAAAAAFAAYAAAAAAAAAAAAFAAcAAAAAAAAAAAAFAAgAAAAAAAAAAAAGAAAAAAAAAAAAAAAGAAEAAAAAAAAAAAAGAAIAAAAAAAAAAAAGAAMAAAAAAAAAAAAGAAQAAAACAAAAAAAGAAUAAAAAAAAAAAAGAAYAAAAAAAAAAAAGAAcAAAAAAAAAAAAGAAgAAAAAAAAAAAAHAAAAAAAAAAAAAAAHAAEAAAAAAAAAAAAHAAIAAAAAAAAAAAAHAAMAAAAAAAAAAAAHAAQAAAACAAAAAAAHAAUAAAAAAAAAAAAHAAYAAAAAAAAAAAAHAAcAAAAAAAAAAAAHAAgAAAAAAAAAAAAIAAAAAAAAAAAAAAAIAAEAAAAAAAAAAAAIAAIAAAAAAAAAAAAIAAMAAAAAAAAAAAAIAAQAAAACAAAAAAAIAAUAAAAAAAAAAAAIAAYAAAAAAAAAAAAIAAcAAAAAAAAAAAAIAAgAAAAAAAAAAAAJAAAAAAAAAAAAAAAJAAEAAAAAAAAAAAAJAAIAAAAAAAAAAAAJAAMAAAAAAAAAAAAJAAQAAAACAAAAAAAJAAUAAAACAAAAAAAJAAYAAAACAAAAAAAJAAcAAAACAAAAAAAJAAgAAAAAAAAAAAAKAAAAAAAAAAAAAAAKAAEAAAAAAAAAAAAKAAIAAAAAAAAAAAAKAAMAAAAAAAAAAAAKAAQAAAAAAAAAAAAKAAUAAAAAAAAAAAAKAAYAAAAAAAAAAAAKAAcAAAACAAAAAAAKAAgAAAAAAAAAAAALAAAAAAAAAAAAAAALAAEAAAAAAAAAAAALAAIAAAAAAAAAAAALAAMAAAAAAAAAAAALAAQAAAAAAAAAAAALAAUAAAAAAAAAAAALAAYAAAAAAAAAAAALAAcAAAAAAAAAAAALAAgAAAAAAAAAAAAMAAAAAAAAAAAAAAAMAAEAAAAAAAAAAAAMAAIAAAAAAAAAAAAMAAMAAAAAAAAAAAAMAAQAAAAAAAAAAAAMAAUAAAAAAAAAAAAMAAYAAAAAAAAAAAAMAAcAAAAAAAAAAAAMAAgAAAAAAAAAAAANAAAAAAAAAAAAAAANAAEAAAAAAAAAAAANAAIAAAAAAAAAAAANAAMAAAAAAAAAAAANAAQAAAAAAAAAAAANAAUAAAAAAAAAAAANAAYAAAAAAAAAAAANAAcAAAAAAAAAAAANAAgAAAAAAAAAAAA=")
@@ -47,3 +60,68 @@ polygon = PackedVector2Array(0, -10, 8, 8, -8, 8)
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="Player" unique_id=1932072095]
 path_desired_distance = 4.0
 target_desired_distance = 4.0
+
+[node name="BorgForhoyningModern" parent="." instance=ExtResource("11_objscene")]
+position = Vector2(180, 60)
+era = 0
+examine_text = "Jorden her hever seg svakt. Traktorsporet er alltid ujevnt akkurat på dette punktet."
+completion_condition = "sett_forhoyningen_i_akeren"
+
+[node name="Gunnhild" parent="." instance=ExtResource("10_npcscene")]
+position = Vector2(210, 60)
+era = 0
+npc_id = "gunnhild"
+display_name = "Gunnhild"
+root_dialogue = ExtResource("20_dngunnhild")
+
+[node name="BorgHovdinghusVikingtid" parent="." instance=ExtResource("11_objscene")]
+position = Vector2(180, 60)
+era = 1
+examine_text = "Et langt tømmerhus strekker seg over tunet - flere titalls meter, med røyk fra ildstedet inni. Dette må være høvdingens sal."
+completion_condition = "sett_hovdinghuset_vikingtid"
+related_claim = ExtResource("24_hcborgmakt")
+
+[node name="VagarSkiltModern" parent="." instance=ExtResource("11_objscene")]
+position = Vector2(290, 150)
+era = 0
+examine_text = "Et forvitret skilt ved brygga. Under nyere maling anes bokstaver: «VÁGAR»."
+completion_condition = "lest_skiltet_vagar"
+
+[node name="Sigrun" parent="." instance=ExtResource("10_npcscene")]
+position = Vector2(310, 150)
+era = 0
+npc_id = "sigrun"
+display_name = "Sigrun"
+root_dialogue = ExtResource("21_dnsigrun")
+
+[node name="Torolv" parent="." instance=ExtResource("10_npcscene")]
+position = Vector2(300, 150)
+era = 1
+npc_id = "torolv"
+display_name = "Torolv"
+root_dialogue = ExtResource("22_dntorolv")
+
+[node name="VagarVarerVikingtid" parent="." instance=ExtResource("11_objscene")]
+position = Vector2(285, 145)
+era = 1
+examine_text = "Utenlandske varer ligger stablet ved brygga - keramikk, glassperler og annet gods, fraktet inn av skip fra fjerne strøk."
+
+[node name="SaltstraumenJordstykkeModern" parent="." instance=ExtResource("11_objscene")]
+position = Vector2(400, 230)
+era = 0
+examine_text = "Et lite stykke jord ved husveggen er nylig gravd opp igjen og fylt igjen. Gresset har ikke rukket å gro tilbake."
+completion_condition = "sett_gravestedet_moderne"
+
+[node name="Bjorn" parent="." instance=ExtResource("10_npcscene")]
+position = Vector2(420, 230)
+era = 0
+npc_id = "bjorn"
+display_name = "Bjørn"
+root_dialogue = ExtResource("23_dnbjorn")
+
+[node name="SaltstraumenGravVikingtid" parent="." instance=ExtResource("11_objscene")]
+position = Vector2(400, 230)
+era = 1
+examine_text = "En pilspiss, en blank glassperle og et øksehode ligger ved siden av noen ben, dekket av tynt jordsmonn."
+completion_condition = "sett_vikinggraven_vikingtid"
+related_claim = ExtResource("25_hcsalt")

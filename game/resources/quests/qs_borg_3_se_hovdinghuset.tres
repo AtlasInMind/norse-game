@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="QuestStep" format=3]
+
+[ext_resource type="Script" path="res://scripts/quest_step.gd" id="1_qs"]
+
+[resource]
+script = ExtResource("1_qs")
+description = "Bytt tidslag og se hva forhøyningen egentlig er."
+completion_condition = "sett_hovdinghuset_vikingtid"

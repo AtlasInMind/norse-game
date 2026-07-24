@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="DialogueNode" format=3]
+
+[ext_resource type="Script" path="res://scripts/dialogue_choice.gd" id="1_dcscript"]
+[ext_resource type="Resource" path="res://resources/dialogue/dc_gunnhild_ask.tres" id="2_choice"]
+[ext_resource type="Script" path="res://scripts/dialogue_node.gd" id="3_dn"]
+
+[resource]
+script = ExtResource("3_dn")
+speaker = "Gunnhild"
+text = "Nei, se der! Er du på tur? Pass deg for forhøyningen i jordet der - traktoren min hopper alltid akkurat der."
+era = 0
+choices = Array[ExtResource("1_dcscript")]([ExtResource("2_choice")])

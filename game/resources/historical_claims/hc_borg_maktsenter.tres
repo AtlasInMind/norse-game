@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="HistoricalClaim" format=3]
+
+[ext_resource type="Script" path="res://scripts/historical_claim.gd" id="1_tf37k"]
+
+[resource]
+script = ExtResource("1_tf37k")
+claim_text = "Utgravningene ved Borg har funnet gullgubber og importert Tating-keramikk fra kontinentet, som viser at høvdingsetet hadde vidstrakte handelsforbindelser i vikingtiden."
+era = 1
+place = "Borg"
+certainty = 0
+source_ids = Array[String](["SRC-HIST-085"])

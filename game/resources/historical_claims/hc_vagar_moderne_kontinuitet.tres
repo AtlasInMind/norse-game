@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="HistoricalClaim" format=3]
+
+[ext_resource type="Script" path="res://scripts/historical_claim.gd" id="1_tf37k"]
+
+[resource]
+script = ExtResource("1_tf37k")
+claim_text = "Vágar (i dag Kabelvåg) er den dag i dag et levende fiskevær knyttet til Lofotfisket - i motsetning til Kaupang, som ble forlatt og aldri videreført, viser Vágar en sjelden, dokumentert kontinuitet fra vikingtid til nåtid."
+era = 0
+place = "Vágar/Kabelvåg"
+certainty = 0
+source_ids = Array[String](["SRC-HIST-094", "SRC-HIST-100"])

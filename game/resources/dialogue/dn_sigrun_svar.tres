@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="DialogueNode" format=3]
+
+[ext_resource type="Script" path="res://scripts/dialogue_node.gd" id="1_dn"]
+
+[resource]
+script = ExtResource("1_dn")
+speaker = "Sigrun"
+text = "Ingen vet helt sikkert. Men prøv å gå tilbake i tid selv og se hva du finner her."
+era = 0
+completion_condition = "snakket_med_sigrun_om_fiskevaeret"

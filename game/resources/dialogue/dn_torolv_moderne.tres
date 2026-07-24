@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="DialogueNode" format=3]
+
+[ext_resource type="Script" path="res://scripts/dialogue_node.gd" id="1_dn"]
+[ext_resource type="Script" path="res://scripts/historical_claim.gd" id="2_hcscript"]
+[ext_resource type="Resource" path="res://resources/historical_claims/hc_vagar_moderne_kontinuitet.tres" id="3_claim"]
+
+[resource]
+script = ExtResource("1_dn")
+speaker = "Torolv"
+text = "Det vet ikke jeg noe om, kjøpmann - jeg er jo her og nå. Men kanskje du, som ser begge tidslag, kan svare på det selv?"
+era = 1
+related_claims = Array[ExtResource("2_hcscript")]([ExtResource("3_claim")])
+completion_condition = "hort_om_vagars_historie"

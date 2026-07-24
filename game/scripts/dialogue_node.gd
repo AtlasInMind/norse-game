@@ -15,3 +15,7 @@ extends Resource
 
 ## Grener/valg fram til neste node. Tom liste = bladnode (slutt på samtalen).
 @export var choices: Array[DialogueChoice] = []
+
+## Valgfri fullføringsbetingelse (samme navnerom som QuestStep.completion_condition)
+## som utløses i QuestManager når denne noden vises i dialogen.
+@export var completion_condition: String = ""

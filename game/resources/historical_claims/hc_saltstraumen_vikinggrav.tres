@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="HistoricalClaim" format=3]
+
+[ext_resource type="Script" path="res://scripts/historical_claim.gd" id="1_tf37k"]
+
+[resource]
+script = ExtResource("1_tf37k")
+claim_text = "I 2021 ble en antatt vikinggrav med pilspiss, glassperle og øks funnet rett under et bolighus i Saltstraumen-området, oppdaget under vanlig anleggsarbeid."
+era = 1
+place = "Saltstraumen"
+certainty = 1
+source_ids = Array[String](["SRC-HIST-091", "SRC-HIST-090"])

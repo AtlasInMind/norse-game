@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="QuestStep" format=3]
+
+[ext_resource type="Script" path="res://scripts/quest_step.gd" id="1_qs"]
+
+[resource]
+script = ExtResource("1_qs")
+description = "Spør Gunnhild om forhøyningen."
+era = 0
+completion_condition = "snakket_med_gunnhild_om_forhoyningen"

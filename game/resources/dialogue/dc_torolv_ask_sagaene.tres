@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="DialogueChoice" format=3]
+
+[ext_resource type="Resource" path="res://resources/dialogue/dn_torolv_sagaene.tres" id="1_next"]
+[ext_resource type="Script" path="res://scripts/dialogue_choice.gd" id="2_dc"]
+
+[resource]
+script = ExtResource("2_dc")
+choice_text = "Nei, fortell meg om sagaene."
+next_node = ExtResource("1_next")

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="DialogueNode" format=3]
+
+[ext_resource type="Script" path="res://scripts/dialogue_node.gd" id="1_dn"]
+[ext_resource type="Script" path="res://scripts/historical_claim.gd" id="2_hcscript"]
+[ext_resource type="Resource" path="res://resources/historical_claims/hc_vagar_kongelig_kirke.tres" id="3_claim"]
+[ext_resource type="Script" path="res://scripts/dialogue_choice.gd" id="4_dcscript"]
+[ext_resource type="Resource" path="res://resources/dialogue/dc_torolv_ask_moderne.tres" id="5_choice"]
+
+[resource]
+script = ExtResource("1_dn")
+speaker = "Torolv"
+text = "Ja, kongen selv - Øystein Magnusson - lot bygge kirke og rorbuer her tidlig på 1100-tallet. Det er godt dokumentert, ikke bare en historie."
+era = 1
+related_claims = Array[ExtResource("2_hcscript")]([ExtResource("3_claim")])
+choices = Array[ExtResource("4_dcscript")]([ExtResource("5_choice")])

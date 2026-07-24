@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Quest" format=3]
+
+[ext_resource type="Script" path="res://scripts/quest.gd" id="1_quest"]
+[ext_resource type="Script" path="res://scripts/quest_step.gd" id="2_qsscript"]
+[ext_resource type="Resource" path="res://resources/quests/qs_borg_1_se_forhoyningen.tres" id="3_step1"]
+[ext_resource type="Resource" path="res://resources/quests/qs_borg_2_sporr_gunnhild.tres" id="4_step2"]
+[ext_resource type="Resource" path="res://resources/quests/qs_borg_3_se_hovdinghuset.tres" id="5_step3"]
+
+[resource]
+script = ExtResource("1_quest")
+quest_id = "borg_hovdingsete"
+title = "Åkeren som skjulte høvdingsetet"
+description = "Undersøk den merkelige forhøyningen i jordet - og se hva den egentlig skjuler."
+place = "Borg"
+required_eras = Array[int]([0, 1])
+steps = Array[ExtResource("2_qsscript")]([ExtResource("3_step1"), ExtResource("4_step2"), ExtResource("5_step3")])

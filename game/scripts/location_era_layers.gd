@@ -8,6 +8,11 @@ extends Node2D
 @export var modern_layer_path: NodePath = ^"ModernLayer"
 @export var viking_layer_path: NodePath = ^"VikingLayer"
 
+## Oppdragene som hører til denne lokasjonen, registrert hos QuestManager ved
+## oppstart (se docs-issue #9). Ikke QuestManagers ansvar å vite hvilke
+## oppdrag som finnes i hvilken scene.
+@export var quests: Array[Quest] = []
+
 @onready var _modern_layer: TileMapLayer = get_node(modern_layer_path)
 @onready var _viking_layer: TileMapLayer = get_node(viking_layer_path)
 
@@ -16,6 +21,8 @@ func _ready() -> void:
 	CurrentEra.era_changed.connect(_apply_era)
 	SaveSystem.load_and_apply()
 	_apply_era(CurrentEra.current_era)
+	for quest in quests:
+		QuestManager.register_quest(quest)
 
 
 func _apply_era(era: Era.Type) -> void:
