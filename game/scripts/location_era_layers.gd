@@ -14,6 +14,7 @@ extends Node2D
 
 func _ready() -> void:
 	CurrentEra.era_changed.connect(_apply_era)
+	SaveSystem.load_and_apply()
 	_apply_era(CurrentEra.current_era)
 
 

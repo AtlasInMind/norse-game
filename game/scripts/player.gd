@@ -16,6 +16,7 @@ var _nav_map_ready := false
 
 
 func _ready() -> void:
+	add_to_group(SaveSystem.PERSIST_GROUP)
 	await get_tree().physics_frame
 	_nav_map_ready = true
 
