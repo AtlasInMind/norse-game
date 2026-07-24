@@ -12,8 +12,12 @@ config_version=5
 
 config/name="Norse Game"
 config/features=PackedStringArray("4.7", "GL Compatibility")
-run/main_scene="res://scenes/spike_hello_world.tscn"
+run/main_scene="res://scenes/vertical_slice_location.tscn"
 config/icon="res://icon.svg"
+
+[autoload]
+
+CurrentEra="*res://scripts/era_state.gd"
 
 [rendering]
 

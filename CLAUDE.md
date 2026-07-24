@@ -21,7 +21,8 @@ Prosjektet spores i GitHub Issues, gruppert i milestones M0–M5 (se `.claude/pl
 - M2–M5 har foreløpig kun ett kort epic-issue hver; disse brytes ned i konkrete issues når milestonen blir aktuell — det er en gyldig oppgave i seg selv å bryte ned et epic til mindre issues.
 - Placeholder-grafikk/lyd er forventet og greit fram til M3 (ekte assets kommer når oppdragsgiver har skaffet kunstner/verktøy).
 - Alle kildekrav og autentisitetsprinsipper under gjelder likt for nytt spillinnhold (quests, dialog, stedsnavn) som for research-dokumentene.
-- **Det skal alltid være trygt å kjøre `/clear` mellom to issues.** Før du går videre til neste issue: `git status` rent, `main` i sync med `origin/main`, og issuet lukket med en oppsummerende kommentar. Anta at neste økt ikke har noen minne om denne — all kontekst den trenger skal finnes i git-historikk, GitHub-issuer/kommentarer eller `docs/`, se punkt 6 i issue "0 — Start her".
+- **Før commit/push: få koden gjennomgått av en frisk, uavhengig agent** uten kontekst fra samtalen — se punkt 5 i issue "0 — Start her". Rett opp reelle funn før du går videre.
+- **Det skal alltid være trygt å kjøre `/clear` mellom to issues.** Før du går videre til neste issue: `git status` rent, `main` i sync med `origin/main`, og issuet lukket med en oppsummerende kommentar. Anta at neste økt ikke har noen minne om denne — all kontekst den trenger skal finnes i git-historikk, GitHub-issuer/kommentarer eller `docs/`, se punkt 7 i issue "0 — Start her".
 
 ## Historisk autentisitet er en hovedverdi
 
