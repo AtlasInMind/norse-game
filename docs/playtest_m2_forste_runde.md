@@ -62,6 +62,8 @@ Det finnes ingen pause-meny, ingen Escape-håndtering og ingen annen mekanisme f
 
 Under hele lastefasen (før hovedmenyen vises) er skjermen helt tom/grå, uten fremdriftsindikator. Dette bekrefter — men utvider ikke — det åpne spørsmålet allerede notert i `docs/research/web_export_findings.md` ("Bør det legges inn en «loading»-skjerm/progressbar..."). Eksportert `index.wasm` var 39 513 091 bytes i denne runden, i tråd med samme dokuments tidligere måling (~39,5 MB ukomprimert). Ingen ny handling nødvendig her utover det som allerede står i det dokumentet — nevnes for å bekrefte at funnet fortsatt er gyldig med faktisk spillinnhold (ikke bare den tomme spike-scenen fra M0).
 
+**Korreksjon (2026-07-24, GitHub-issue #27):** dette funnet var delvis unøyaktig. Direkte, empirisk verifisering med skjermbilder tatt underveis i lasteforløpet (ikke bare før/etter) viste at Godots standard web-eksport-mal faktisk viser en fremdriftslinje så snart den lille `index.js`-glue-filen er lastet (i praksis nesten umiddelbart) — skjermen er ikke reelt tom gjennom hele forløpet. Det reelle problemet var at standardmalen viser Godot-motorens egen logo/merkevare, ikke noe spillspesifikt. Se full forklaring og løsning i `docs/research/web_export_findings.md`, avsnittet "Oppdatering 2026-07-24: loading-skjerm".
+
 ## Akseptansekriterier — status
 
 - [x] Hele løpet fra hovedmeny → nytt spill → utforsking av Borg/Vágar → minst ett fullført oppdrag → lagring/gjenåpning er testet i faktisk nettleser-eksport.

@@ -58,9 +58,20 @@ Tallet på 30,7 sekunder er reelt bekymringsverdig for en "tom" scene, MEN det g
 
 ## Åpne spørsmål til videre arbeid (ikke løst i denne spiken)
 
-- Hvilken hostingtjeneste skal brukes for endelig utgivelse, og komprimerer den `.wasm` med brotli som standard? (Påvirker punkt «Effekt av kompresjon» over.)
-- Bør det legges inn en «loading»-skjerm/progressbar i `index.html`s shell for å dekke de første sekundene med nedlasting/kompilering, gitt at selv med kompresjon tar dette flere sekunder på en typisk mobilforbindelse?
-- Reell test på en fysisk mobilenhet (ikke bare simulert nettverk i en Chromium-desktop-instans).
+- Hvilken hostingtjeneste skal brukes for endelig utgivelse, og komprimerer den `.wasm` med brotli som standard? (Påvirker punkt «Effekt av kompresjon» over.) — hosting-valg selv hører til M5 «Release preparation»-milepælen.
+- Reell test på en fysisk mobilenhet (ikke bare simulert nettverk i en Chromium-desktop-instans) — dekket av GitHub-issue #29 under M4.
+
+## Oppdatering 2026-07-24: loading-skjerm (GitHub-issue #27)
+
+**Korreksjon av tidligere antakelse:** `docs/playtest_m2_forste_runde.md` (funn 5) rapporterte at skjermen var «helt tom/grå, uten fremdriftsindikator» under hele lastefasen. Direkte, empirisk verifisering i denne runden (skjermbilder tatt med Playwright/Chromium under simulert ~10 Mbps/40 ms-nettverk, samme metode som resten av dette dokumentet) viser at dette **ikke stemte**: Godots standard web-eksport-mal (`misc/dist/html/full-size.html` i Godot-kildekoden) inkluderer allerede en synlig statusoverlegg med en fremdriftslinje (`<progress>`, drevet av `onProgress`-callbacken i `engine.startGame()`), som blir synlig så snart `index.js` (den lille, ~273 KB glue-filen) er lastet og kjørt — i praksis nesten umiddelbart, ikke etter flere sekunder. M2-spilltestens funn stemte trolig ikke fordi skjermbildet den gang ble tatt for tidlig i lastefasen eller ikke fanget opp den native `<progress>`-linjen visuelt.
+
+**Det som faktisk manglet:** ikke selve fremdriftsindikatoren, men **spillspesifikk merkevarebygging** — standardmalen viser Godot-motorens egen logo/tekst («GODOT / Game engine»), ikke noe som hører til dette spillet, noe som bryter atmosfæren for en spiller som (fortsatt uvitende om at det er Godot-drevet) møter en fremmed motor-logo før spillets eget hovedmeny vises.
+
+**Løsning:** en egen HTML-shell-mal, `game/web_export_shell.html`, registrert via `html/custom_html_shell="res://web_export_shell.html"` i `export_presets.cfg`. Bygget direkte på Godots offisielle `full-size.html`-mal (samme token-plassholdere: `$GODOT_PROJECT_NAME`, `$GODOT_SPLASH_COLOR`, `$GODOT_CONFIG` osv., slik at eksportøren fortsatt fyller inn korrekte, oppdaterte filstørrelser/config ved hver ny eksport — ingen hardkodede verdier), men med den generiske Godot-splash-bildet skjult (ingen egen boot-splash-ressurs er satt opp for spillet ennå — placeholder-fase, jf. `CLAUDE.md`) og erstattet med enkel, atmosfærisk tittel-tekst («Norse Game», samme plassholdertittel som `main_menu.gd` allerede bruker, jf. `OPEN_QUESTIONS.md` punkt 2) og en omstilt, nøytral fremdriftslinje.
+
+**Verifisert:** reeksportert og testet i faktisk (headless) Chromium via Playwright, både under simulert 10 Mbps-nettverk (bekrefter fremdriftslinjen viser voksende fremgang gjennom hele lasteforløpet, konsistent med de ~30 sekundene ukomprimert lastetid dokumentert over) og med ubegrenset lokal båndbredde (bekrefter statusoverlegget fjernes korrekt og hovedmenyen vises normalt, ingen konsoll-/sidefeil).
+
+**Dette løser IKKE** selve lastetids-problemet (39,5 MB `.wasm` er fortsatt 39,5 MB) — kun mangelen på passende visuell tilbakemelding mens brukeren venter. Selve lastetiden avhenger fortsatt av kompresjon på valgt hostingtjeneste (se punktet over, M5) og eventuelt av innholdsvekst siden denne spiken (se GitHub-issue #28).
 
 ## Kilder/researchgrunnlag
 
@@ -70,4 +81,4 @@ Tallet på 30,7 sekunder er reelt bekymringsverdig for en "tom" scene, MEN det g
 
 ## Sist oppdatert
 
-2026-07-24
+2026-07-24 (tillegg: loading-skjerm løst, se eget avsnitt over, GitHub-issue #27)
