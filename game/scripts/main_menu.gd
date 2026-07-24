@@ -16,6 +16,10 @@ var _quit_label: Label
 func _ready() -> void:
 	set_anchors_preset(Control.PRESET_FULL_RECT)
 
+	# "Meny"-knappen (PauseMenuUI) gir ingen mening før et spill er i gang -
+	# se _on_new_game_pressed()/_on_continue_pressed() for der den vises igjen.
+	PauseMenuUI.set_toggle_visible(false)
+
 	var menu_center := CenterContainer.new()
 	menu_center.set_anchors_preset(Control.PRESET_FULL_RECT)
 	menu_center.mouse_filter = Control.MOUSE_FILTER_IGNORE
@@ -102,10 +106,12 @@ func _on_new_game_pressed() -> void:
 	QuestManager.reset()
 	CurrentEra.reset()
 	DiscoveryLog.reset()
+	PauseMenuUI.set_toggle_visible(true)
 	get_tree().change_scene_to_file(LOCATION_SCENE_PATH)
 
 
 func _on_continue_pressed() -> void:
+	PauseMenuUI.set_toggle_visible(true)
 	get_tree().change_scene_to_file(LOCATION_SCENE_PATH)
 
 

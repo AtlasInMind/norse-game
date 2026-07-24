@@ -26,6 +26,7 @@ SettingsSystem="*res://scripts/settings_system.gd"
 QuestLogUI="*res://scripts/quest_log_ui.gd"
 DiscoveryLog="*res://scripts/discovery_log.gd"
 CodexUI="*res://scripts/codex_ui.gd"
+PauseMenuUI="*res://scripts/pause_menu_ui.gd"
 
 [rendering]
 

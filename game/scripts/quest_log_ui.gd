@@ -88,8 +88,9 @@ func toggle_log() -> void:
 
 
 func open_log() -> void:
-	# Unngår to fullskjerms-paneler oppå hverandre samtidig.
+	# Unngår flere fullskjerms-paneler oppå hverandre samtidig.
 	CodexUI.close_codex()
+	PauseMenuUI.close_menu()
 	_refresh()
 	_barrier.visible = true
 

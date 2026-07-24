@@ -85,8 +85,9 @@ func toggle_codex() -> void:
 
 
 func open_codex() -> void:
-	# Unngår to fullskjerms-paneler oppå hverandre samtidig.
+	# Unngår flere fullskjerms-paneler oppå hverandre samtidig.
 	QuestLogUI.close_log()
+	PauseMenuUI.close_menu()
 	_refresh()
 	_barrier.visible = true
 
