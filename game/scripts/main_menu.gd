@@ -16,9 +16,12 @@ var _quit_label: Label
 func _ready() -> void:
 	set_anchors_preset(Control.PRESET_FULL_RECT)
 
-	# "Meny"-knappen (PauseMenuUI) gir ingen mening før et spill er i gang -
-	# se _on_new_game_pressed()/_on_continue_pressed() for der den vises igjen.
+	# "Meny"-, "Kodex"- og "Oppdrag"-knappene gir ingen mening før et spill er
+	# i gang - se _on_new_game_pressed()/_on_continue_pressed() for der de
+	# vises igjen (jf. issue #20/#21).
 	PauseMenuUI.set_toggle_visible(false)
+	CodexUI.set_toggle_visible(false)
+	QuestLogUI.set_toggle_visible(false)
 
 	var menu_center := CenterContainer.new()
 	menu_center.set_anchors_preset(Control.PRESET_FULL_RECT)
@@ -106,13 +109,19 @@ func _on_new_game_pressed() -> void:
 	QuestManager.reset()
 	CurrentEra.reset()
 	DiscoveryLog.reset()
-	PauseMenuUI.set_toggle_visible(true)
+	_show_ingame_ui()
 	get_tree().change_scene_to_file(LOCATION_SCENE_PATH)
 
 
 func _on_continue_pressed() -> void:
-	PauseMenuUI.set_toggle_visible(true)
+	_show_ingame_ui()
 	get_tree().change_scene_to_file(LOCATION_SCENE_PATH)
+
+
+func _show_ingame_ui() -> void:
+	PauseMenuUI.set_toggle_visible(true)
+	CodexUI.set_toggle_visible(true)
+	QuestLogUI.set_toggle_visible(true)
 
 
 func _on_settings_pressed() -> void:

@@ -71,7 +71,7 @@ func _ready() -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	if DialogueUI.is_open():
+	if not _toggle_button.visible or DialogueUI.is_open():
 		return
 	if event is InputEventKey and event.pressed and not event.echo and event.keycode == KEY_K:
 		toggle_codex()
@@ -98,6 +98,15 @@ func close_codex() -> void:
 
 func is_open() -> bool:
 	return _barrier.visible
+
+
+## Brukes av main_menu.gd: "Kodex"-knappen gir ingen mening før et spill
+## faktisk er i gang (jf. issue #21 - samme prinsipp som
+## PauseMenuUI.set_toggle_visible() ble innført for i issue #20).
+func set_toggle_visible(visible_now: bool) -> void:
+	_toggle_button.visible = visible_now
+	if not visible_now:
+		close_codex()
 
 
 func _on_claim_discovered(_claim: HistoricalClaim) -> void:
