@@ -1,76 +1,77 @@
-# Prosjektvisjon — Norse Game
+# Project Vision — Norse Game
 
-## Formål
+## Purpose
 
-Beskrive den kreative og designmessige retningen for spillet slik den er fastsatt av oppdragsgiver, som utgangspunkt for videre research og designarbeid.
+Describe the creative and design direction for the game as set by the client, as a foundation for further design and content work.
 
-## Sammendrag
+## Summary
 
-Et rolig, utforskende top-down 2D-eventyr for iPhone/iPad (senere Android), bygget i Godot med GDScript. Spilleren opplever de samme geografiske stedene i to tidsperioder — et gjenkjennelig moderne nordisk/europeisk samfunn og det samme landskapet i vikingtiden — og oppdager dokumenterbare forbindelser mellom dem.
+An atmospheric, exploration-driven top-down 2D game for the browser, built in Godot with GDScript. The player experiences the same real places in two time periods — a recognizable modern Norwegian setting and the same landscape in the Viking Age — and pieces together what actually connects them, not through citations, but through what the people in the story believe, fear, or won't say out loud.
 
-## Sist oppdatert
+## Last updated
 
-2026-07-23
+2026-07-24 (creative reboot — see `DECISIONS.md`)
 
 ## Status
 
-foreløpig (kreativ retning fastsatt av oppdragsgiver i innledende brief; ikke justert av research ennå)
+provisional (creative direction reset by the client during a reboot pass; supersedes the original 2026-07-23 brief-derived direction, see `DECISIONS.md`)
 
 ---
 
-## Plattform og motor
+## Platform and engine
 
-- Motor: Godot (versjon avklares i `research/godot_mobile_technical_research.md`), språk: GDScript.
-- **Primærplattform: web (nettleser)**, fastsatt av oppdragsgiver 2026-07-24 — se `DECISIONS.md`. iOS er et mulig, senere sekundært eksportmål fra samme Godot-kodebase; Android ikke prioritert.
-- Kontrollmetode: tap/klikk-til-bevegelse som primær input, fungerer for både berøring og mus.
+- Engine: Godot 4.7, language: GDScript.
+- **Primary platform: web (browser)**, set by the client 2026-07-24 — see `DECISIONS.md`. iOS is a possible later secondary export target from the same Godot codebase; Android not prioritized.
+- Control method: tap/click-to-move as primary input, works for both touch and mouse.
 
-## Visuell og mekanisk retning
+## Visual and mechanical direction
 
-- Perspektiv: top-down.
-- Estetikk: enkel, stilisert grafikk — pixel art eller tilsvarende. Inspirert av lesbarheten og atmosfæren i Old School RuneScape, **uten** å kopiere OSRS' grafikk, figurer, grensesnitt eller andre beskyttede uttrykk. Se `research/authenticity_and_sensitive_topics.md` og senere IP-vurderinger i teknisk research.
-- Tempo og fokus: rolig utforskning, miljøfortelling, oppdagelser og «aha»-øyeblikk vektlegges over kamp. Kamp er ikke hovedmekanikken.
-- Verdenen bygger på nordisk og europeisk natur, landskap, bosetninger og kulturmiljøer.
+- Perspective: top-down.
+- Aesthetic: simple, stylized graphics — pixel art or equivalent, still to be produced (placeholder shapes until real art starts, see the M3 milestone). Readability can still draw on Old School RuneScape's legibility, without copying its protected expression — but the mood reference points are now closer to *What Remains of Edith Finch*, *Old Man's Journey*, and *Outer Wilds*: melancholic, curious, willing to leave things unresolved.
+- Pace and focus: exploration and atmosphere over combat; combat is not the core mechanic (exact amount still an open question, see `OPEN_QUESTIONS.md`). Tension comes from mood, uncertainty, and consequence, not necessarily from danger to the player character.
+- The world draws on real Nordic/Norwegian nature, landscape, settlements, and cultural environments.
 
-## Dobbeltuniverset
+## The dual timeline
 
-Kjernemekanikken i spillet: samme geografiske sted eksisterer i to tidslag —
+The game's core mechanic: the same geographic place exists in two time layers —
 
-1. Et gjenkjennelig, moderne nordisk/europeisk samfunn.
-2. Det samme stedet i vikingtiden.
+1. A recognizable, modern Norwegian setting.
+2. The same place in the Viking Age.
 
-Spilleren skal oppleve **dokumenterbare** forbindelser mellom tidslagene — ikke fri fantasi og ikke en påstand om at samfunnene er like. Eksempler på forbindelsestyper som skal undersøkes (se `research/continuity_into_modern_life.md`):
+The player should experience connections between the two time layers that are **real and researched**, but delivered as belief rather than fact — never announced with a citation or a certainty badge. Examples of the kind of connection to build toward (see `research/continuity_into_modern_life.md` for the underlying research; delivery in-game should read as folklore, rumor, or unease, not as an information panel):
 
-- Moderne torg/møteplasser som kan ha historiske markeds- eller tingsteder i nærheten.
-- Moderne veier som følger eldre ferdselsårer.
-- Religiøse/sosiale samlingssteder med lagvis historie (må aldri fremstilles som fakta uten dokumentasjon).
-- Gravhauger og kulturminner i eller ved moderne bebyggelse.
-- Norrøne røtter i moderne ord, uttrykk og stedsnavn.
-- Eiendomsgrenser og jordbrukslandskap med spor av eldre organisering.
-- Sammensatte eller omdiskuterte forbindelser mellom moderne høytider/lover/normer og eldre tradisjoner.
+- A modern square or gathering place near what was once a market or assembly site.
+- A modern road that follows an older route, for reasons nobody living quite remembers.
+- A religious or social gathering place with layered history — something people sense rather than something the game states as fact.
+- Burial mounds and archaeological traces in or near modern buildings, treated as unsettling rather than merely informative.
+- Old Norse roots in modern words, expressions, and place names.
+- Property boundaries and farmland carrying traces of older organization.
+- Composite or contested connections between modern holidays, laws, or norms and older traditions.
 
-Målfølelse for spilleren: *«Dette er ikke en helt fremmed verden. Historien ligger fremdeles i landskapet, språket og samfunnet rundt meg.»*
+Target feeling for the player: *unease and recognition at once — this place remembers something, and not everyone here wants to say what.*
 
-Viktig avgrensning: reduser opplevd avstand mellom tidsperiodene ved å vise dokumenterbare forbindelser, videreføringer, brudd og endringer — ikke ved å fremstille periodene som identiske.
+Important boundary: reduce the felt distance between the two time periods by showing real connections, continuities, breaks, and changes — not by presenting the periods as identical, and not by resolving whether the old beliefs were true. Whether something was real is left for the player to sit with, not settle.
 
-### Geografisk avgrensning
+### Geographic scope
 
-Spillet er lagt til **Lofoten/Vesterålen/Salten** (Nordland) — fastsatt av oppdragsgiver 2026-07-24, se `docs/DECISIONS.md`. Spillets egne stedsnavn og geografi skal likevel være fiktive sammensetninger, ikke en presis gjengivelse av virkelige steder (jf. `concepts/location_pairs.md`). Regionen har en vesentlig samisk historisk og nålevende tilstedeværelse som krever egen, varsom behandling — se `docs/OPEN_QUESTIONS.md` punkt 10.
+The game is set in **Lofoten/Vesterålen/Salten** (Nordland, Norway) — set by the client 2026-07-24, see `DECISIONS.md`. The game's own place names and geography should still be fictional composites, not a precise rendering of real places (see `concepts/location_pairs.md`). The region has a significant Sámi historical and living presence that requires its own careful treatment — see `OPEN_QUESTIONS.md` and `research/authenticity_and_sensitive_topics.md` §2.7.
 
-## Moderne visuell retning
+## Modern visual direction
 
-Det moderne samfunnet skal **ikke** primært fremstilles gjennom kjøpesentre, skyskrapere, luksus eller «bling». Fokus på jordnære, bebodde, troverdige miljøer som fungerer godt sammen med historiske versjoner av samme sted — se full liste og research i `research/modern_environment.md` (mindre byer/tettsteder, bygder, gårder, havner, kirker/kirkegårder, museer, elver/fjorder/kystlandskap, steder der moderne bygg ligger tett på arkeologiske spor, m.m.).
+The modern setting should **not** be primarily shown through malls, skyscrapers, luxury, or "bling." Focus on down-to-earth, inhabited, credible environments that work well alongside historical versions of the same place — see the full list and research in `research/modern_environment.md` (small towns, villages, farms, harbors, churches/cemeteries, museums, rivers/fjords/coastal landscape, places where modern buildings sit close to archaeological traces, etc.).
 
-Kontrasten mot vikingtiden skal komme fra endringer i mennesker, bruk, materialer og samfunn — ikke bare fra ekstrem moderne arkitektur.
+The contrast with the Viking Age should come from changes in people, use, materials, and society — not just from extreme modern architecture.
 
-## Historisk autentisitet som kjerneverdi
+## Historical grounding as a core value — held internally
 
-Se `research/`-mappen for full dekning. Nøkkelprinsipper:
+See the `research/` folder for full coverage, and `CLAUDE.md` for how this now applies without a player-facing citation system. Key principles:
 
-- «Vikingene» er ikke én ensartet folkegruppe med én livsstil — skill mellom de som dro på vikingferd og den bredere befolkningen i vikingtidens samfunn.
-- Skill konsekvent mellom historiske fakta, sannsynlige rekonstruksjoner, faglig omdiskuterte tolkninger, og senere myter/moderne populærkultur.
-- Ikke romantiser vold, plyndring, trelldom eller sosial ulikhet. Ikke reduser samfunnet til krigere, konger og guder — hverdagsliv, arbeid, familie, lokal handel og landskapsbruk er minst like viktig.
-- Religion skal ikke fremstilles som ett komplett, standardisert system.
+- "The Vikings" are not one homogeneous people with one lifestyle — distinguish those who went raiding or trading abroad from the broader population of Viking-Age society.
+- Consistently distinguish historical fact, probable reconstruction, academically debated interpretation, and later myth or modern pop culture — internally, in the writing process, even though the game no longer labels this for the player.
+- Don't romanticize violence, plunder, slavery, or social inequality. Don't reduce society to warriors, kings, and gods — everyday life, work, family, local trade, and land use matter at least as much.
+- Religion should not be shown as one complete, standardized system.
+- Show hard truths with real weight rather than softening them for comfort — the target audience (adults, 18-30) can hold that.
 
-## Avgrensning for denne fasen
+## Scope for this phase
 
-Dette er en research- og dokumentasjonsfase. Ingen spillkode, ingen full Godot-prosjektstruktur, ingen ferdige spillressurser produseres ennå. Målet er et grundig, etterprøvbart og varig kunnskapsgrunnlag i `docs/` som senere økter (Claude Code, Codex, mennesker) kan bygge videre på uten å stole på chat-historikk.
+The engine/systems foundation (M0-M2) and the original vertical-slice content are built and functional. This phase is a creative reset of tone, audience, and language before content expansion continues — see the M3 milestone breakdown on GitHub. Reused as-is: the engine, the dual-timeline architecture, the save system, the UI framework. Rewritten: all player-facing text (English, new voice), the historical-claim/citation display, and the three existing quests' dialogue.

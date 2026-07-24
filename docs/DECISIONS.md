@@ -6,15 +6,15 @@ Kronologisk logg over vesentlige beslutninger i prosjektet, med begrunnelse, kil
 
 ## Sammendrag
 
-Seks innledende beslutninger fastsatt direkte av oppdragsgiver i prosjektets brief, før dyp research, pluss to oppføringer fra syntese-/tilbakemeldingsfasen: en foreløpig prototypeanbefaling (Vestfold) som oppdragsgiver ikke valgte, og oppdragsgivers endelige regionvalg (Lofoten/Vesterålen/Salten).
+Seks innledende beslutninger fastsatt direkte av oppdragsgiver i prosjektets brief, før dyp research, pluss to oppføringer fra syntese-/tilbakemeldingsfasen: en foreløpig prototypeanbefaling (Vestfold) som oppdragsgiver ikke valgte, og oppdragsgivers endelige regionvalg (Lofoten/Vesterålen/Salten). **Update (2026-07-24, English):** after M0-M2 were built, the client requested a creative reboot — deeper/more mystic tone, an 18-30 audience, and English going forward — see the final entry below for the full rationale and confirmed decisions. This log continues in English from that entry onward; earlier entries stay in Norwegian as historical record.
 
-## Sist oppdatert
+## Sist oppdatert / Last updated
 
 2026-07-24
 
 ## Status
 
-foreløpig
+foreløpig / provisional
 
 ---
 
@@ -83,3 +83,31 @@ foreløpig
 **Kilder/researchgrunnlag:** Bruker-instruksjon (2026-07-24). Eksisterende Godot-research bekrefter offisiell Web-eksportstøtte i prinsippet, men et web-spesifikt teknisk research-tillegg (lastetid, WASM-størrelse, mobilnettleser-ytelse) er ikke gjort ennå — flagget som tidlig oppgave (se GitHub-issue for M0-spiken).
 **Konsekvenser:** `PROJECT_VISION.md` oppdatert. Prosjektet går nå over i implementeringsfase med et eget GitHub-repo (`AtlasInMind/norse-game`, privat) for teknisk og innholdsmessig arbeid, strukturert i milestones M0–M5 — se `.claude/plans/federated-knitting-wolf.md` for full plan.
 **Status:** endelig (regionvalg og motorvalg er bestemt; web-ytelse i praksis skal verifiseres tidlig i M0 som egen spike, ikke antas).
+
+---
+
+### 2026-07-24 — Creative reboot: tone, audience, and language pivot
+
+*(Written in English — see the language decision below. All entries above this point are historical record from the original Norwegian-language phase and are left as-is.)*
+
+**Rationale:** With M0-M2 built (engine foundation, vertical-slice content, core UI systems — 21 closed issues), the client reviewed the result and found the direction read as childish/educational — closer to a museum app than a game aimed at adults. A structured review confirmed this concretely: every historical claim rendered to the player as literal citation text (e.g. "[Sannsynlig] ... (SRC-HIST-095)"), dialogue was written as a source-criticism catechism, `aha_moments.md` was built around "corrective" myth-busting beats, and no antagonists or real danger existed anywhere in the design. Against that, the project's own cited design references (*What Remains of Edith Finch*, *Old Man's Journey*, *Outer Wilds*) were already atmospheric and melancholic, and the "landscape remembers" framing already contained inherently eerie material (a longhouse plowed up under a field, a grave under a modern house's foundation) that was being defused with disclaimers rather than played up. Of everything decided before this point, only the region (Lofoten/Vesterålen/Salten) and the platform/engine (Godot, web) were actually marked final — tone, narrative frame, combat level, and language were all still open, making a pivot straightforward rather than disruptive.
+
+**Requested by client:** a deeper, more mystic tone, a target audience of adults (roughly 18-30), and English instead of Norwegian for the game and project work going forward.
+
+**Decisions confirmed with the client (2026-07-24):**
+1. **Mystic scope:** folklore, omens, and seiðr appear in the fiction, but always filtered through what characters believe or fear — never confirmed as objectively real. No literal-magic mechanics.
+2. **Sourcing system:** dropped substantially from player-facing UI. No more inline certainty tags or source IDs in dialogue or the codex. Internal research discipline (source register, certainty grading) stays as an authoring tool for accuracy and respect.
+3. **Language:** English for everything going forward — `CLAUDE.md`, `docs/`, GitHub issues/commits, and in-game content. The existing Norwegian `research/`/`concepts/` corpus stays as an archived reference, translated piecemeal only when its content is actively adapted into new material.
+4. **Historical grounding:** stays tight — same region, same real documented sites (Borg, Vágar, Saltstraumen), same internal rigor, just written with more atmosphere and maturity.
+
+**Sources/basis:** Client instruction (2026-07-24), informed by a structured review of `PROJECT_VISION.md`, this decision log, `OPEN_QUESTIONS.md`, the `concepts/` documents, `research/authenticity_and_sensitive_topics.md`, the closed GitHub issues in milestones M0-M2, and the actual in-game dialogue/quest/UI text as built. Full planning record: `.claude/plans/i-want-you-to-bright-brooks.md`.
+
+**Consequences:**
+- `CLAUDE.md`, `PROJECT_VISION.md`, `OPEN_QUESTIONS.md`, and `GLOSSARY.md` rewritten in English for the new direction.
+- `research/*.md` and `concepts/*.md` (12 + 4 files) remain Norwegian, archived/reference status — not retranslated wholesale.
+- The M3 "Content expansion" epic (issue #11) rewritten to sequence: rework existing docs/systems/content first, then new content expansion, with the mandatory Sámi sensitivity review requirement carried over unchanged.
+- M0-M2's closed issues and built systems (navigation, era-switching, dialogue tree, quest tracking, save system, UI framework) are unaffected — they're tone-agnostic and stay reused as-is. What changes is content and presentation, not architecture.
+- The authenticity/sensitivity safeguards themselves (no romanticizing violence/slavery/inequality, no ethnic-purity framing, Sámi §2.7 requirements) are unchanged — they were never in tension with a more mature tone, and this pivot doesn't loosen them.
+- Combat level remains an open question (see `OPEN_QUESTIONS.md`) — not resolved by this pivot; default working assumption is no combat system but real tension/danger/consequence.
+
+**Status:** final (tone/audience/language direction is set; specific new content written under it is ongoing work, tracked via the M3 milestone).

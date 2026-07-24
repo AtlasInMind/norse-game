@@ -1,5 +1,7 @@
 # Research Index
 
+> **English note (2026-07-24, creative reboot — see `DECISIONS.md`):** project documentation and all new work are now in English. The research corpus indexed below (`research/`, `concepts/`) stays in Norwegian, archived as reference — it isn't being retranslated wholesale. Consult it for factual grounding when writing new content, and translate specific passages on demand as they're actively adapted, rather than translating the whole corpus up front. This index itself is left in Norwegian since it directly describes that Norwegian material.
+
 ## Formål
 
 Fungere som inngangsport til hele kunnskapsgrunnlaget — spesielt for en agent som starter etter `/clean` uten tilgang til tidligere samtalehistorikk. Les denne filen først.

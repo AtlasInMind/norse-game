@@ -1,24 +1,24 @@
 ---
 name: Task
-about: Et konkret arbeidsoppdrag for prosjektet (teknisk, innhold, research eller dokumentasjon)
+about: A concrete work item for the project (engineering, content, research, or documentation)
 title: ""
 labels: []
 ---
 
-## Beskrivelse
+## Description
 
-<!-- Hva skal gjøres, og hvorfor. Skriv slik at en AI-økt uten annen kontekst enn dette issuet kan forstå oppgaven. -->
+<!-- What needs to be done, and why. Write it so an AI session with no other context than this issue can understand the task. -->
 
-## Relevante dokumenter
+## Relevant documents
 
-<!-- Lenker/stier til filer i docs/ (og evt. andre issues) som er nødvendige for å løse oppgaven. -->
+<!-- Links/paths to files in docs/ (and any other issues) needed to solve this task. -->
 
-## Akseptansekriterier
+## Acceptance criteria
 
-<!-- Konkret, sjekkbar liste over hva som må være sant før issuet kan lukkes. -->
+<!-- Concrete, checkable list of what must be true before this issue can be closed. -->
 
 - [ ]
 
-## Avhengigheter
+## Dependencies
 
-<!-- Andre issues som må være løst først, hvis noen. Skriv "Ingen" hvis fri fram. -->
+<!-- Other issues that must be resolved first, if any. Write "None" if there aren't any. -->

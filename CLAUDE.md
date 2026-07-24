@@ -1,58 +1,67 @@
 # Norse Game
 
-## Prosjektoversikt
+## Project overview
 
-Et rolig, utforskende top-down 2D-eventyr for web (nettleser), bygget i Godot med GDScript. Spilleren opplever de samme geografiske stedene i to tidsperioder — et gjenkjennelig moderne nordisk/europeisk samfunn og det samme landskapet i vikingtiden — og oppdager dokumenterbare forbindelser mellom dem. Se `docs/PROJECT_VISION.md` for full kreativ retning. Spillets region er Lofoten/Vesterålen/Salten (Nordland).
+An atmospheric, exploration-driven top-down 2D game for the browser, built in Godot with GDScript. The player experiences the same real places in two time periods — a recognizable modern Norwegian setting and the same landscape in the Viking Age — and gradually pieces together what actually connects them. The connections are grounded in real research, but the game never hands the player a citation: they arrive as things people believe, fear, half-remember, or won't talk about. See `docs/PROJECT_VISION.md` for the full creative direction. The game's region is Lofoten/Vesterålen/Salten (Nordland, Norway).
 
-Research- og dokumentasjonsfasen er ferdig (se `docs/RESEARCH_INDEX.md`). Prosjektet er nå i implementeringsfase, sporet via GitHub Issues/Milestones i dette repoet — se «Utviklingsfase» under.
+**Target audience: adults, roughly 18-30. Tone: atmospheric, a little uneasy, willing to sit with hard truths rather than soften them.** Not horror, not fantasy-with-magic-that-works — folklore and belief are present in the fiction, but the game never confirms them as objectively true. See "Historical grounding" below for how this interacts with source rigor.
 
-## Plattform og motor
+This is a creative-direction pivot from the project's original framing (calm, gentle, citation-forward, general-audience, Norwegian). See the **2026-07-24 "Creative reboot" entry in `docs/DECISIONS.md`** for the full rationale and the confirmed decisions behind it. Research and factual grounding from the earlier phase remain valid and are still used internally — what changed is tone, audience, presentation, and language.
 
-- Motor: Godot, språk: GDScript (versjon avklares i `docs/research/godot_mobile_technical_research.md`).
-- **Plattform: web (nettleser) primært.** iOS er et mulig, senere sekundært eksportmål fra samme kodebase. Android ikke prioritert.
+**Language: English, going forward**, for this file, `docs/`, GitHub issues/commits, and all in-game content. The existing Norwegian research corpus (`docs/research/`, `docs/concepts/`) stays in place as an archived reference — see "Documents to read first" below.
 
-## Utviklingsfase
+Research and documentation-phase foundations are indexed in `docs/RESEARCH_INDEX.md`. The project is in implementation phase, tracked via GitHub Issues/Milestones in this repo — see "Development phase" below.
 
-Prosjektet spores i GitHub Issues, gruppert i milestones M0–M5 (se `.claude/plans/federated-knitting-wolf.md` for hele planen bak dette, samt `docs/DECISIONS.md` 2026-07-24 for web-pivoten).
+## Platform and engine
 
-Arbeidsflyt per issue:
+- Engine: Godot 4.7, language: GDScript.
+- **Platform: web (browser), primary.** iOS is a possible, later secondary export target from the same codebase. Android is not prioritized.
 
-1. Ta **laveste nummererte åpne issue i tidligste åpne milestone** (Milestones-fanen: M0 før M1 før M2, osv.). Ikke hopp foran i køen med mindre issuet selv sier noe annet under "Avhengigheter".
-2. Åpne issuet og les "Relevante dokumenter"-lenkene i det — de peker til `docs/`-filer med all nødvendig bakgrunn. Hvert issue skal være selvstendig forståelig; ikke anta kontekst fra tidligere samtaler.
-3. Følg "Akseptansekriterier" i issuet.
-4. **Før commit/push: få koden gjennomgått av en frisk, uavhengig agent** uten kontekst fra samtalen (den skal finne bakgrunn selv, fra repoet/`docs/`, ikke bli briefet om hva som nettopp ble bygget). Rett opp reelle funn før du går videre — dette er en kvalitetssjekk, ikke en formalitet.
-5. Når kriteriene er oppfylt og reviewen er håndtert: commit arbeidet, push til `main`, og lukk issuet med en kort kommentar om hva som ble gjort. **Ikke commit/push uten at issuets akseptansekriterier er oppfylt** — små, verifiserbare steg er bedre enn store, uverifiserte hopp.
-6. **Før du går videre til neste issue: verifiser at det er trygt å kjøre `/clear`.** `git status` skal være rent (ingen ukommitterte/uspora filer), lokal `main` skal være i sync med `origin/main` (ingen ahead/behind), og issuet skal være lukket med en oppsummerende kommentar. Anta at neste økt ikke har noen minne om denne — all kontekst den trenger skal finnes i git-historikk + GitHub-issuer/kommentarer, ikke i samtaleminnet. Hvis et issue ikke ble fullført i økten, ikke lukk det og ikke lat som det er ferdig — la det stå åpent, ev. med en kommentar om status så langt.
-7. Gå tilbake til punkt 1 og finn neste issue.
+## Development phase
 
-**Hvis issuet er merket `epic`:** det betyr det ikke er detaljert ennå. Oppgaven er da å bryte epicet ned i konkrete, mindre issues (bruk issue-malen `.github/ISSUE_TEMPLATE/task.md`), knyttet til samme milestone, basert på hva som faktisk er bygget så langt i prosjektet. Referer til de research-/concept-dokumentene i `docs/` som er relevante for akkurat den delen av epicet du bryter ned. M2–M5 har foreløpig kun ett kort epic-issue hver.
+The project is tracked in GitHub Issues, grouped into milestones M0–M5 (see `.claude/plans/federated-knitting-wolf.md` for the plan behind this structure, `docs/DECISIONS.md` 2026-07-24 for the web pivot, and the 2026-07-24 "Creative reboot" entry for this direction change).
 
-Placeholder-grafikk/lyd er forventet og greit fram til milestone M3 (ekte assets kommer når oppdragsgiver har skaffet kunstner/verktøy) — ikke vent på ekte assets for å gjøre fremgang på systemer/mekanikk. Alle kildekrav og autentisitetsprinsipper under gjelder likt for nytt spillinnhold (quests, dialog, stedsnavn) som for research-dokumentene.
+Workflow per issue:
 
-## Historisk autentisitet er en hovedverdi
+1. Take the **lowest-numbered open issue in the earliest open milestone** (Milestones tab: M0 before M1 before M2, and so on). Don't jump ahead in the queue unless the issue itself says otherwise under "Dependencies."
+2. Open the issue and read its "Relevant documents" links — they point to `docs/` files with all necessary background. Every issue should be understandable on its own; don't assume context from earlier conversations.
+3. Follow the issue's "Acceptance criteria."
+4. **Before commit/push: get the code reviewed by a fresh, independent agent** with no context from the conversation (it should find background itself, from the repo/`docs/`, not be briefed on what was just built). Fix real findings before moving on — this is a quality check, not a formality.
+5. Once the criteria are met and the review is handled: commit the work, push to `main`, and close the issue with a short comment on what was done. **Don't commit/push unless the issue's acceptance criteria are met** — small, verifiable steps beat large, unverified leaps.
+6. **Before moving to the next issue: verify it's safe to run `/clear`.** `git status` should be clean (no uncommitted/untracked files), local `main` should be in sync with `origin/main` (no ahead/behind), and the issue should be closed with a summary comment. Assume the next session has no memory of this one — all the context it needs should live in git history + GitHub issues/comments, not in conversation memory. If an issue wasn't finished in the session, don't close it and don't pretend it's done — leave it open, optionally with a status comment.
+7. Go back to step 1 and find the next issue.
 
-Dette er ikke et generisk fantasyspill. Historisk autentisitet, kildekritikk og respektfull behandling av vikingtidens samfunn (uten romantisering av vold/trelldom, uten å redusere religion til ett standardisert system, uten å behandle «vikingene» som én ensartet gruppe) er like viktig som spilldesignet. Se `docs/research/authenticity_and_sensitive_topics.md`.
+**If the issue is labeled `epic`:** it hasn't been detailed yet. The task is then to break the epic down into concrete, smaller issues (use the issue template `.github/ISSUE_TEMPLATE/task.md`), tied to the same milestone, based on what's actually been built in the project so far. Reference the `docs/` documents relevant to the specific part of the epic being broken down. M4–M5 currently each have one short epic issue.
 
-**Region: Lofoten/Vesterålen/Salten.** Samisk historie i denne regionen skal behandles med samme varsomhet som beskrevet i `docs/research/authenticity_and_sensitive_topics.md` §2.7 og `docs/OPEN_QUESTIONS.md` punkt 10 — ikke som bakgrunnsdekor.
+Placeholder graphics/audio are expected and fine until real art/audio work actually starts under M3 (it depends on the client securing an artist/tools) — don't wait for real assets to make progress on systems/mechanics. All source requirements and authenticity principles below apply equally to new game content (quests, dialogue, place names) as to the research documents.
 
-## Les disse dokumentene først (i denne rekkefølgen)
+## Historical grounding is a core value — held internally, not displayed to the player
 
-1. `docs/PROJECT_VISION.md` — hva prosjektet er og hvorfor.
-2. `docs/RESEARCH_INDEX.md` — inngangsport til alt kunnskapsgrunnlag, viser status per tema.
-3. `docs/DECISIONS.md` — beslutninger tatt så langt, med begrunnelse.
-4. `docs/OPEN_QUESTIONS.md` — ubesvarte spørsmål som påvirker retning.
-5. Relevante filer i `docs/research/` og `docs/concepts/` etter behov.
+This is not a generic fantasy game, and it doesn't romanticize or launder Viking-Age society. Historical grounding, source criticism, and respectful treatment of Viking-Age society — without romanticizing violence/slavery, without reducing religion to one standardized system, without treating "the Vikings" as one homogeneous group — matter as much as the game design. See `docs/research/authenticity_and_sensitive_topics.md`.
 
-**Stol ikke på tidligere samtalekontekst eller Claudes minne.** All relevant kunnskap skal finnes i `docs/`. Hvis noe viktig mangler der, er det ikke etablert ennå — ikke anta at det ble diskutert i en tidligere økt.
+**Important change from the original direction:** the game used to show its sourcing directly to the player — every historical claim in dialogue displayed a certainty tag and source ID inline (e.g. "[Probable] ... (SRC-HIST-095)"). That's gone. The research discipline stays **internal**: every claim that grounds a piece of writing should still be traceable to `docs/research/source_register.md`, and writers (including future Claude sessions) should still know whether something is documented fact, plausible reconstruction, debated interpretation, or later legend — but none of that apparatus is printed on screen. In the fiction, it shows up as belief: a character who avoids a field, a rumor half-told, a modern account nobody wants to investigate properly. Whether it was "true" is never resolved for the player.
 
-## Kildekrav
+**Region: Lofoten/Vesterålen/Salten.** Sámi history in this region must be treated with the same care described in `docs/research/authenticity_and_sensitive_topics.md` §2.7 and `docs/OPEN_QUESTIONS.md` — not as background decoration. This requirement is unchanged by the tone pivot; nothing about "more mature/mystic" licenses stereotyping, exoticizing, or erasing Sámi presence.
 
-Alle vesentlige historiske påstander skal kildebelegges. Bruk formatet: Påstand, Geografisk område, Tidsperiode, Evidenstype, Sikkerhetsgrad (høy/middels/lav), Kilde (SRC-ID), Mulig bruk i spillet, Fare for feiltolkning. Skill alltid mellom dokumentert fakta, sannsynlig rekonstruksjon, faglig omdiskutert tolkning, og ren fiksjon/kreativ frihet — merk sistnevnte tydelig som sådan der det forekommer.
+## Documents to read first (in this order)
 
-Nye kilder registreres i `docs/research/source_register.md` med en stabil ID (SRC-HIST-###, SRC-ARCH-###, SRC-REL-###, SRC-LANG-###, SRC-CONT-###, SRC-MOD-###, SRC-GAME-###, SRC-TECH-###) og refereres til med denne ID-en i andre dokumenter.
+1. `docs/PROJECT_VISION.md` — what the project is and why.
+2. `docs/RESEARCH_INDEX.md` — entry point to the research corpus, shows status per topic. Its indexed research files are still in Norwegian — see the archive note at the top of that document.
+3. `docs/DECISIONS.md` — decisions made so far, with rationale.
+4. `docs/OPEN_QUESTIONS.md` — unanswered questions that affect direction.
+5. Relevant files in `docs/research/` and `docs/concepts/` as needed (Norwegian; consult for factual grounding — no need to translate unless you're actively adapting that specific content into new game text).
 
-## Vedlikehold av dokumentasjonen
+**Don't rely on prior conversation context or Claude's memory.** All relevant knowledge should be in `docs/`. If something important is missing there, it hasn't been established yet — don't assume it was discussed in an earlier session.
 
-- Viktige beslutninger føres i `docs/DECISIONS.md` med dato, begrunnelse, kilder og konsekvens.
-- `docs/RESEARCH_INDEX.md` skal holdes oppdatert — statusfeltet per tema må reflektere virkeligheten etter hver research-økt.
-- Ikke overskriv eksisterende, verifisert innhold uten grunn — integrer forsiktig.
+## Source requirements (internal authoring discipline)
+
+Every significant historical claim used to ground a piece of writing should be traceable to a source. Use the format: Claim, Geographic area, Time period, Evidence type, Certainty (high/medium/low), Source (SRC-ID), Possible use in the game, Risk of misinterpretation. Always distinguish, in the authoring process, between documented fact, probable reconstruction, academically debated interpretation, and pure fiction/creative license — mark the latter clearly as such wherever it's tracked, even though none of this grading is shown to the player directly (see "Historical grounding" above).
+
+New sources are registered in `docs/research/source_register.md` with a stable ID (SRC-HIST-###, SRC-ARCH-###, SRC-REL-###, SRC-LANG-###, SRC-CONT-###, SRC-MOD-###, SRC-GAME-###, SRC-TECH-###) and referenced by that ID in other documents.
+
+## Maintaining the documentation
+
+- Important decisions go in `docs/DECISIONS.md` with date, rationale, sources, and consequence.
+- `docs/RESEARCH_INDEX.md` should be kept up to date — the status field per topic must reflect reality after each research/content session.
+- Don't overwrite existing, verified content without reason — integrate carefully.
+- New documents, and any existing document being substantially reworked, should be written in English. The Norwegian `docs/research/` and `docs/concepts/` corpus stays as an archived reference — translate specific passages on demand when actively adapting that content into new material, not wholesale.

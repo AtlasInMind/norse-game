@@ -1,79 +1,73 @@
-# Åpne spørsmål
+# Open Questions
 
-## Formål
+## Purpose
 
-Samle uløste spørsmål som påvirker prosjektets retning, hvorfor de er viktige, og hva som kreves for å besvare dem.
+Collect unresolved questions that affect the project's direction, why they matter, and what's needed to answer them.
 
-## Sammendrag
+## Summary
 
-Ti åpne spørsmål: de seks opprinnelige, identifisert direkte fra det innledende briefet før dyp research var gjennomført, tre oppdaget under den kreative syntesefasen (7–9), og ett nytt (10) oppdaget etter at oppdragsgiver fastsatte endelig region. Spørsmål 1 er nå **løst** (se `docs/DECISIONS.md`, 2026-07-24). Spørsmål 2 har fortsatt en foreløpig anbefaling som ikke er regionavhengig.
+Rewritten in English as part of the 2026-07-24 creative reboot (see `DECISIONS.md`). Several of the original ten questions are now resolved or superseded by that pivot; the ones that remain genuinely open are listed below, alongside two new questions the reboot itself surfaced.
 
-## Sist oppdatert
+## Last updated
 
 2026-07-24
 
 ## Status
 
-foreløpig
+provisional
 
 ---
 
-## 1. Geografisk avgrensning for første prototype — LØST
+## Open
 
-**Hvorfor viktig:** All historisk research (bosetninger, stedsnavn, arkeologi) blir langt mer presis og etterprøvbar hvis den knyttes til ett konkret sted/region fremfor "Norden generelt".
+### 1. How much combat should the game have, exactly
 
-**Løsning (2026-07-24):** Oppdragsgiver har bestemt **Lofoten/Vesterålen/Salten** som spillets geografiske avgrensning — se `docs/DECISIONS.md`, 2026-07-24. Dette erstatter syntesefasens Vestfold-anbefaling. Regionspesifikk stedpar-research (tilsvarende dybden Vestfold-anbefalingen fikk) er igangsatt som eget oppfølgingsarbeid; se `RESEARCH_INDEX.md` for status på `concepts/location_pairs.md`, `concepts/prototype_recommendation.md` og regionspesifikke tillegg i `research/`-mappen.
+The client has said combat should be secondary to exploration, not that it's absent. This predates the reboot and wasn't resolved by it.
+**Why it matters:** affects scope and which systems the next content pass needs.
+**What's needed:** a decision from the client before significant new content work assumes one answer or the other. Default working assumption for planning purposes: no traditional combat system, but real tension, danger, and consequence in the writing and pacing.
 
-## 2. Hvordan unngå at dobbeltuniverset blir et tidsreiseparadoks-puslespill
+### 2. Working title
 
-Brukeren har eksplisitt bedt om et forslag til hovedkonflikt som ikke gjør tidsreiser unødvendig kompliserte.
-**Hvorfor viktig:** Uten en enkel narrativ ramme risikerer dobbeltunivers-mekanikken å kreve mye forklaring, noe som bryter med målet om rolig utforskning fremfor forelesning.
-**Hva kreves:** Designforslag i `research/dual_timeline_design.md` og `concepts/prototype_recommendation.md`.
+The game currently has no real name — `main_menu.gd` still shows a placeholder ("Norse Game," the repo's own name).
+**Why it matters:** a title shapes tone as much as any other single piece of writing; worth settling before it leaks into more UI/marketing copy.
+**What's needed:** client input, or a short set of options proposed against the new direction once early rewritten content exists to test them against.
 
-**Foreløpig anbefaling (2026-07-23/24 — venter på oppdragsgivers godkjenning):** `concepts/prototype_recommendation.md` del (c) foreslår at spilleren styrer to atskilte figurer (én per tidslag) på samme sted, uten at noen tidsreise-mekanisme forklares i selve fiksjonen — tidslagsbyttet er et verktøy for spilleren, ikke en hendelse figurene opplever. Dette løser problemet for en vertikal prototype, men `research/dual_timeline_design.md` (teknisk kart-strategi: to kart / lagdelte kart / delt grunngeometri) er fortsatt ikke skrevet — se nytt punkt 7 under.
+### 3. Exact calibration of "belief, not fact" per content type
 
-## 3. Datastruktur for historiske påstander med kildehenvisning i spillet
+The reboot decided that folklore/omens/seiðr are filtered through character belief rather than confirmed as real — but the right amount of ambiguity likely varies by content type (a well-documented archaeological find delivered through a modern archaeologist NPC can probably still read as fairly matter-of-fact; older, folk-belief-flavored material is where the ambiguity should do more work).
+**Why it matters:** getting this wrong in either direction either flattens back into the old "here is a verified fact" tone, or drifts into actual-supernatural territory the client didn't ask for.
+**What's needed:** calibrated by example during the first content-rework issue (rewriting the existing three quests), then documented back into `PROJECT_VISION.md` or a new craft-guidance doc once a working pattern emerges.
 
-**Hvorfor viktig:** Brukeren krever at spillinnhold (oppdrag, dialog, historiske fakta) kan kobles til kildegrunnlag uten å hardkode alt i enkeltscript.
-**Hva kreves:** Teknisk anbefaling i `research/godot_mobile_technical_research.md`.
+### 4. `research/dual_timeline_design.md` is still unwritten
 
-## 4. Hvilken Godot-versjon skal legges til grunn
+**Unchanged by the reboot** — purely technical. The narrative framing in `concepts/prototype_recommendation.md` part (c) gives an overall recommendation, but the more technical map-strategy question — which strategy to use to represent two time layers at the same place (two separate maps, layered maps, or shared base geometry with swappable overlays) — was answered in practice by the M1 implementation (`vertical_slice_location.tscn`'s shared-ground-plus-two-dressing-layers architecture), but the dedicated research document itself was never filled in to formally record that reasoning.
+**Why it matters:** low priority now that the pattern is already built and working, but worth writing up for future locations so the reasoning doesn't only live in code.
+**What's needed:** a short retroactive write-up of the pattern actually used, next time a new location is built.
 
-**Hvorfor viktig:** iOS/iPadOS/Android-støtte, TileMap-arbeidsflyt og eksport-verktøy endrer seg mellom Godot-versjoner.
-**Hva kreves:** Avklares i `research/godot_mobile_technical_research.md` med henvisning til offisiell, versjonsspesifikk dokumentasjon.
+### 5. Several religious-history sources have only been read in summary form
 
-## 5. Opphavsrettslig avstand til Old School RuneScape
+**Unchanged by the reboot.** Key works (Stefan Brink's "How uniform was the Old Norse religion?", Gro Steinsland's *Norrøn religion*, Sæbjørg Walaker Nordeide's *The Conversion of Scandinavia*) were only confirmed via author background or publisher/portal summaries, not read in full text.
+**Why it matters:** religion/cosmology is one of the most sensitive and contested topics in the whole project (see `authenticity_and_sensitive_topics.md` §2.5-2.6), and this doesn't change just because the delivery is now atmospheric rather than citation-forward — content that draws on these works' specific details should still be grounded in full text, not secondary summaries.
+**What's needed:** obtain and read these works (or relevant chapters) in full before specific, detailed claims from them are used directly in game text.
 
-Brukeren har bedt om lesbarhet/atmosfære inspirert av OSRS, men uten å kopiere beskyttede uttrykk.
-**Hvorfor viktig:** Uklar avstand kan skape juridisk risiko eller tvinge frem sen redesign.
-**Hva kreves:** Konkrete, generelle prinsipper (ikke juridisk rådgivning) i `research/godot_mobile_technical_research.md` og/eller `research/authenticity_and_sensitive_topics.md`.
+### 6. Some specific place-claims in `continuity_into_modern_life.md` need further verification
 
-## 6. Hvor mye kamp skal spillet ha, presist
+**Unchanged by the reboot.** The document itself flags that (a) the section on medieval Oslo should be checked against a stronger primary source than general reference works (e.g. NIKU, Oslo Byarkiv, Riksantikvaren's preservation documentation), and (b) the vegvísir symbol's 19th-century origin should be cross-checked against a peer-reviewed source (currently only a popular-science source, nordicperspective.com).
+**Why it matters:** both claims are used as central "aha" moments in `aha_moments.md` (moments 11 and 15) and should hold up to closer scrutiny before being written into specific game text — this matters just as much for atmospheric/belief-framed delivery as it did for citation-forward delivery, since the underlying claim still needs to be true even if it's no longer shown as a citation. (Worth noting: the vegvísir item is good material for the new direction regardless — it's already a real story about a "Viking" symbol that isn't actually from the Viking Age, which is exactly the kind of belief-vs-history gap the new tone wants to sit with rather than debunk outright.)
+**What's needed:** a short, targeted follow-up search against the primary sources named above, with an update to `continuity_into_modern_life.md`'s source list.
 
-Brukeren sier kamp skal vektlegges mindre enn utforskning, men ikke at kamp er fraværende.
-**Hvorfor viktig:** Påvirker omfang og hvilke systemer prototypen trenger.
-**Hva kreves:** Beslutning i `docs/DECISIONS.md` når `concepts/prototype_recommendation.md` er klar — trolig et spørsmål å avklare med oppdragsgiver før prototype-fasen, ikke noe research alene kan svare på.
+### 7. Sámi-Norse contact in Lofoten/Vesterålen/Salten needs dedicated research
 
-## 7. `research/dual_timeline_design.md` er fortsatt ikke skrevet
+**Unchanged by the reboot — if anything, more load-bearing now**, since the new tone leans more into atmosphere/ambiguity, which raises the stakes of getting this material right rather than lower. All research completed so far (especially `continuity_into_modern_life.md` and `authenticity_and_sensitive_topics.md`) was written with Southern/Central Norway and general Nordic conditions as an implicit backdrop. Lofoten/Vesterålen/Salten has a significantly larger and more visible Sámi historical and living presence (especially Salten, a Lule Sámi area) than, for example, Vestfold.
+**Why it matters:** the project's own requirement not to reduce or exclude ethnic groups, and to treat social organization/cultural contact with source criticism, applies just as much to Sámi-Norse relations as to internal Norse social stratification — see `PROJECT_VISION.md` and `authenticity_and_sensitive_topics.md`. Setting the game in this region without researching and deliberately addressing Sámi history would be a serious knowledge gap, not a neutral omission. **Mandatory, not optional** — no Salten-associated content should be considered finished before the sensitivity review in `authenticity_and_sensitive_topics.md` §2.7 has been followed. This is carried forward unchanged into the M3 milestone breakdown.
+**What's needed:** dedicated, source-critical research on documented Sámi presence and Sámi-Norse contact (trade, coexistence, conflict, overlapping land use) specifically in this area during the Iron Age/Viking Age, prioritizing Sámi institutions' and scholars' own sources (e.g. Sametinget, Sámi allaskuvla, Árran lulesamisk senter, relevant peer-reviewed research), plus concrete design guidance for how the game avoids stereotyping, exoticizing, or erasing this presence. Started as a research track in 2026-07-24; status should be checked in `RESEARCH_INDEX.md` before any Salten-region content is written.
 
-**Nytt spørsmål, oppdaget under syntesefasen (2026-07-24).** Dette er det eneste av de 12 opprinnelige research-temaene som fortsatt er tomt. `concepts/prototype_recommendation.md` del (c) gir en foreløpig, overordnet narrativ anbefaling, men den mer tekniske/designmessige delen av spørsmålet — hvilken kart-strategi som skal brukes for å representere to tidslag på samme sted (to separate kart, lagdelte kart, eller delt grunngeometri med utskiftbare overlegg) — er ikke besvart.
-**Hvorfor viktig:** Dette er en forutsetning for faktisk Godot-implementasjon av tidslagsbyttet, og bør avklares før teknisk oppsett starter (se `RESEARCH_INDEX.md`, «Neste steg for neste agent»).
-**Hva kreves:** En fremtidig research-/designøkt bør fylle ut `research/dual_timeline_design.md` i tråd med dets opprinnelige formål, med henvisning til de tekniske rammene i `research/godot_mobile_technical_research.md` (TileMapLayer-arbeidsflyt, `NavigationServer2D`).
+---
 
-## 8. Flere religionshistoriske kilder er kun lest i sammendrag/portalform
+## Resolved or superseded
 
-**Nytt spørsmål, oppdaget under syntesefasen (2026-07-24), hentet fra `research/religion_and_worldview.md`s egne kildenotater.** Sentrale verk (Stefan Brinks «How uniform was the Old Norse religion?», Gro Steinslands *Norrøn religion*, Sæbjørg Walaker Nordeides «The Conversion of Scandinavia») er kun bekreftet via forfatterbakgrunn/forlagsomtale eller forskningsportal-sammendrag, ikke lest i fulltekst, i denne research-runden.
-**Hvorfor viktig:** Religion/kosmologi er et av de faglig mest sensitive og omdiskuterte temaene i hele prosjektet (jf. `authenticity_and_sensitive_topics.md` 2.5–2.6), og spillinnhold som siterer disse verkenes detaljer direkte bør bygge på fulltekst, ikke sekundærsammendrag.
-**Hva kreves:** Skaff og les disse verkene (eller relevante kapitler) i fulltekst før spesifikke, detaljerte påstander fra dem brukes direkte i spilltekst.
-
-## 9. Enkelte konkrete stedspåstander i `continuity_into_modern_life.md` bør verifiseres videre
-
-**Nytt spørsmål, oppdaget under syntesefasen (2026-07-24), hentet fra dokumentets egen «Videre research anbefalt»-seksjon.** Dokumentet flagger selv at (a) Middelalderbyen Oslo-avsnittet bør verifiseres mot en sterkere primærkilde enn allmenne oppslagsverk (f.eks. NIKU, Oslo Byarkiv, Riksantikvarens fredningsdokumentasjon), og (b) vegvísir-symbolets 1800-tallsopprinnelse bør krysssjekkes mot en fagfellevurdert kilde (per nå kun populærfaglig nordicperspective.com).
-**Hvorfor viktig:** Begge påstandene brukes som sentrale «aha»-øyeblikk i `concepts/aha_moments.md` (øyeblikk 11 og 15) og bør derfor tåle nærmere kildegranskning før de eventuelt formuleres direkte i spilltekst.
-**Hva kreves:** Et kort, målrettet oppfølgingssøk mot de nevnte primærkildene, med oppdatering av `continuity_into_modern_life.md`s kildeliste.
-
-## 10. Samisk-norrøn kontakt i Lofoten/Vesterålen/Salten er ikke undersøkt
-
-**Nytt spørsmål, oppdaget 2026-07-24 da oppdragsgiver fastsatte regionen.** All hittil gjennomført research (spesielt `continuity_into_modern_life.md` og `authenticity_and_sensitive_topics.md`) er skrevet med Sør-/Midt-Norge og generelle nordiske forhold som implisitt bakteppe. Lofoten/Vesterålen/Salten har en vesentlig større og mer synlig samisk historisk og nålevende tilstedeværelse (særlig Salten, lulesamisk område) enn f.eks. Vestfold.
-**Hvorfor viktig:** Prosjektets eget krav om å ikke redusere eller ekskludere folkegrupper, og om å behandle sosial organisering/kulturmøter kildekritisk (jf. `PROJECT_VISION.md` og `authenticity_and_sensitive_topics.md`), gjelder like mye for samisk-norrøne forhold som for norrøn indre sosial lagdeling. Å legge spillet til denne regionen uten å undersøke og bevisst forholde seg til samisk historie ville være en alvorlig kunnskapsmangel, ikke en nøytral utelatelse.
-**Hva kreves:** Dedikert, kildekritisk research på dokumentert samisk tilstedeværelse og samisk-norrøn kontakt (handel, sameksistens, konflikt, overlappende landbruk) i nettopp dette området i jernalder/vikingtid, med prioritet på samiske institusjoners og fagfolks egne kilder (f.eks. Sametinget, Samisk høgskole, Árran lulesamisk senter, relevant fagfellevurdert forskning), samt konkret designveiledning for hvordan spillet unngår stereotypisering, eksotisering eller usynliggjøring. Igangsatt som eget forskningsspor 2026-07-24.
+- **Geographic scope for the first prototype** — resolved 2026-07-24: Lofoten/Vesterålen/Salten (see `DECISIONS.md`).
+- **How to avoid the dual-universe becoming a time-travel-paradox puzzle** — resolved by the existing recommendation (two separate characters, no explained time-travel mechanism; the time-swap is a tool for the player, not an event the characters experience) and reconfirmed under the new frame: delivering connections as belief rather than fact doesn't reintroduce a need to explain time travel.
+- **Data structure for historical claims with source citations in the game** — technically resolved (the `HistoricalClaim`/`DialogueNode`/`Quest` Resource classes exist and work), though the reboot changes how that structure is *used*: it still carries source/certainty fields for internal authoring purposes, but is no longer rendered to the player as a citation. See the M3 milestone breakdown for the issue reworking this.
+- **Which Godot version to build on** — resolved in practice: the project is built on Godot 4.7.1 stable.
+- **Copyright distance to Old School RuneScape** — substantially addressed by existing research (general, non-legal-advice principles on idea/expression distinction); low priority now that the primary mood references have shifted to *Edith Finch*/*Old Man's Journey*/*Outer Wilds*, though the OSRS legibility reference is still cited for UI readability specifically.
