@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="DialogueNode" format=3]
+
+[ext_resource type="Script" path="res://scripts/dialogue_choice.gd" id="1_u5tyu"]
+[ext_resource type="Resource" path="res://resources/dialogue/dc_test_ask_about_tuesday.tres" id="2_8tbog"]
+[ext_resource type="Script" path="res://scripts/historical_claim.gd" id="3_epvye"]
+[ext_resource type="Resource" path="res://resources/historical_claims/hc_tirsdag_ty.tres" id="4_qmpeo"]
+[ext_resource type="Script" path="res://scripts/dialogue_node.gd" id="5_egoeh"]
+
+[resource]
+script = ExtResource("5_egoeh")
+speaker = "Ravnkjell"
+text = "God dag. Hva vil du vite om Borg?"
+related_claims = Array[ExtResource("3_epvye")]([ExtResource("4_qmpeo")])
+choices = Array[ExtResource("1_u5tyu")]([ExtResource("2_8tbog")])

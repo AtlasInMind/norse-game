@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="DialogueNode" format=3]
+
+[ext_resource type="Script" path="res://scripts/dialogue_choice.gd" id="1_d64ks"]
+[ext_resource type="Script" path="res://scripts/historical_claim.gd" id="2_yr7ce"]
+[ext_resource type="Script" path="res://scripts/dialogue_node.gd" id="3_efhsn"]
+
+[resource]
+script = ExtResource("3_efhsn")
+speaker = "Ravnkjell"
+text = "Far vel, reisende. Måtte vindene være deg gunstige."

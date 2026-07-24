@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="QuestStep" format=3]
+
+[ext_resource type="Script" path="res://scripts/quest_step.gd" id="1_avg8c"]
+
+[resource]
+script = ExtResource("1_avg8c")
+description = "Finn ukedagsnavnet på en moderne kalender."
+era = 0
+completion_condition = "sett_moderne_kalender"

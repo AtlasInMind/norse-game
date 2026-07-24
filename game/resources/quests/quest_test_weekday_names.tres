@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Quest" format=3]
+
+[ext_resource type="Script" path="res://scripts/quest.gd" id="1_r5to7"]
+[ext_resource type="Script" path="res://scripts/quest_step.gd" id="2_ejywh"]
+[ext_resource type="Resource" path="res://resources/quests/qs_test_find_calendar.tres" id="3_wcndv"]
+[ext_resource type="Resource" path="res://resources/quests/qs_test_ask_ravnkjell.tres" id="4_qtife"]
+
+[resource]
+script = ExtResource("1_r5to7")
+quest_id = "test_weekday_names"
+title = "Dagenes navn"
+description = "Oppdag hvor ukedagsnavnene egentlig kommer fra."
+place = "Borg/Vagar"
+required_eras = Array[int]([0, 1])
+steps = Array[ExtResource("2_ejywh")]([ExtResource("3_wcndv"), ExtResource("4_qtife")])

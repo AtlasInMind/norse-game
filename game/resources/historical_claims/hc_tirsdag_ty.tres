@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="HistoricalClaim" format=3]
+
+[ext_resource type="Script" path="res://scripts/historical_claim.gd" id="1_tf37k"]
+
+[resource]
+script = ExtResource("1_tf37k")
+claim_text = "Norsk \"tirsdag\" og engelsk \"Tuesday\" stammer begge fra navnet til guden Tyr/Týr."
+place = "Borg/Vagar"
+certainty = 0
+source_ids = Array[String](["SRC-CONT-014"])
