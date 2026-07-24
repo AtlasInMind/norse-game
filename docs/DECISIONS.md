@@ -10,7 +10,7 @@ Seks innledende beslutninger fastsatt direkte av oppdragsgiver i prosjektets bri
 
 ## Sist oppdatert / Last updated
 
-2026-07-24
+2026-07-25
 
 ## Status
 
@@ -138,3 +138,13 @@ foreløpig / provisional
 - Deployment is currently manual (documented in `docs/deployment.md`); CI-driven auto-deploy on push to `main` was deliberately not built yet, since it requires a heavier Godot-in-CI setup and deploys aren't frequent enough yet to justify it.
 
 **Status:** final (hosting choice and repo visibility are settled; revisiting either would be its own future decision, not an open item).
+
+### 2026-07-25 — Working title chosen: "What the Ground Remembers"
+
+**Rationale:** GitHub issue #33 (M5) asked for a short set of title options grounded in the game's actual content, for the client to choose from — not a unilateral pick. Six candidates were proposed in `docs/title_options.md`, each tied to specific game content (quoted dialogue, quest premises, real regional geography) rather than generic naming, plus a quick non-legal collision check (one candidate, "Salt and Iron," was dropped before presenting because of its similarity to the existing "Salt and Sanctuary"/"Salt and Sacrifice" franchise naming pattern). The interactive decision prompt is capped at 4 options, so 4 of the 6 were presented directly (the other 2 named as available alternatives, with the full document linked); the client chose "What the Ground Remembers" from the four presented.
+
+**Sources/basis:** `docs/title_options.md` — full list of candidates and rationale; `docs/PROJECT_VISION.md`'s stated target feeling ("this place remembers something, and not everyone here wants to say what"), which this title quotes almost directly; client decision (2026-07-25).
+
+**Consequences:** `docs/OPEN_QUESTIONS.md`'s former item 2 (working title) is resolved and moved to "Resolved or superseded." The actual title still needs to be updated in `game/project.godot` (`config/name`) and `main_menu.gd` (currently both show "Norse Game," the placeholder) — tracked as GitHub issue #35, not bundled into #33, per that issue's own acceptance criteria.
+
+**Status:** final.
