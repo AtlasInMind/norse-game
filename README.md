@@ -29,3 +29,10 @@ Godot-prosjektet ligger i `game/`, ikke i repo-roten. Dette holder spillkoden at
 - Default Texture Filter: Nearest (for skarp pixel art).
 - Stretch Mode: `canvas_items`, Stretch Aspect: `expand` (jf. `docs/research/godot_mobile_technical_research.md` punkt 4-5).
 - Renderer: GL Compatibility (kreves for web-eksport, jf. `docs/DECISIONS.md` 2026-07-24 web-pivot).
+
+### Web-eksport
+
+1. Last ned Godot-eksportmaler som matcher editor-versjonen fra `github.com/godotengine/godot/releases` (`Godot_v<versjon>-stable_export_templates.tpz`) og pakk ut til `~/Library/Application Support/Godot/export_templates/<versjon>.stable/` (macOS). Disse følger **ikke** med Homebrew-casken og må hentes manuelt — engangsoppsett per maskin.
+2. Eksporter fra kommandolinjen: `mkdir -p ../builds/web && godot --headless --export-release "Web" ../builds/web/index.html` (kjørt fra `game/`). Målmappen må finnes på forhånd — Godot oppretter den ikke selv. Output havner i `builds/` i repo-roten (utenfor `game/`s ressurstre, git-ignorert).
+3. For å teste lokalt: server `builds/web/` med en enkel HTTP-server (f.eks. `python3 -m http.server`) og åpne i nettleser — kan ikke åpnes direkte som `file://`.
+4. Se `docs/research/web_export_findings.md` for målte filstørrelser/lastetider og kjente konfigurasjonsfeller (canvas-resize-policy, Control-ankere, m.m.).
