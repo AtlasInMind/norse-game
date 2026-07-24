@@ -49,6 +49,12 @@ func is_quest_completed(quest_id: String) -> bool:
 	return _completed_quest_ids.has(quest_id)
 
 
+## Brukes av oppdragslogg-UI-et for å liste aktive oppdrag. Returnerer en
+## kopi slik at kallere ikke kan mutere QuestManagers interne tilstand.
+func get_active_quests() -> Array[Quest]:
+	return _active_quests.duplicate()
+
+
 func completed_step_count(quest_id: String) -> int:
 	return _completed_step_counts.get(quest_id, 0)
 

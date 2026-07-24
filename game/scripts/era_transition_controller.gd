@@ -25,7 +25,7 @@ func _ready() -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	if _is_transitioning or DialogueUI.is_open():
+	if _is_transitioning or DialogueUI.is_open() or QuestLogUI.is_open():
 		return
 	if event is InputEventKey and event.pressed and not event.echo and event.keycode == KEY_E:
 		_toggle_era()

@@ -23,6 +23,7 @@ EraTransitionController="*res://scripts/era_transition_controller.gd"
 QuestManager="*res://scripts/quest_manager.gd"
 DialogueUI="*res://scripts/dialogue_ui.gd"
 SettingsSystem="*res://scripts/settings_system.gd"
+QuestLogUI="*res://scripts/quest_log_ui.gd"
 
 [rendering]
 
