@@ -22,7 +22,7 @@ There's no combat here, and no fantasy magic that works. What tension exists com
 
 ## Feature bullets
 
-- **Move between two time periods on the same ground.** A keypress switches, with a brief fade, between a recognizable modern Norwegian setting and the same landscape in the Viking Age — no loading screen, no explained time-travel mechanism. (Currently keyboard-only; touch/click support for switching eras specifically — as opposed to movement, which is already tap/click-driven — isn't built yet, tracked as GitHub issue #36. Revisit this bullet's wording once that lands.)
+- **Move between two time periods on the same ground.** A tap, click, or keypress switches, with a brief fade, between a recognizable modern Norwegian setting and the same landscape in the Viking Age — no loading screen, no explained time-travel mechanism.
 - **Connections delivered as belief, not fact.** What ties the two eras together comes out in conversation, rumor, and things people leave half-said — never a certainty rating or a source citation.
 - **Three locations grounded in real Nordland history and archaeology**, in the Lofoten/Vesterålen/Salten region — fictionalized, not literal recreations, but built from real research rather than invented lore.
 - **Exploration over combat.** No fighting system; tension comes from atmosphere, pacing, and what's left unsaid, not danger to the player character.

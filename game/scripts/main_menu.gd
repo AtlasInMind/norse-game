@@ -16,12 +16,13 @@ var _quit_label: Label
 func _ready() -> void:
 	set_anchors_preset(Control.PRESET_FULL_RECT)
 
-	# "Menu"-, "Chronicle"- og "Quests"-knappene gir ingen mening før et spill
-	# er i gang - se _on_new_game_pressed()/_on_continue_pressed() for der de
-	# vises igjen (jf. issue #20/#21).
+	# "Menu"-, "Chronicle"-, "Quests"- og "Era"-knappene gir ingen mening før
+	# et spill er i gang - se _on_new_game_pressed()/_on_continue_pressed()
+	# for der de vises igjen (jf. issue #20/#21/#36).
 	PauseMenuUI.set_toggle_visible(false)
 	ChronicleUI.set_toggle_visible(false)
 	QuestLogUI.set_toggle_visible(false)
+	EraTransitionController.set_toggle_visible(false)
 
 	var menu_center := CenterContainer.new()
 	menu_center.set_anchors_preset(Control.PRESET_FULL_RECT)
@@ -145,6 +146,7 @@ func _show_ingame_ui() -> void:
 	PauseMenuUI.set_toggle_visible(true)
 	ChronicleUI.set_toggle_visible(true)
 	QuestLogUI.set_toggle_visible(true)
+	EraTransitionController.set_toggle_visible(true)
 
 
 func _on_settings_pressed() -> void:

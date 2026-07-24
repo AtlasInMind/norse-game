@@ -12,6 +12,7 @@ extends CanvasLayer
 const FADE_DURATION := 0.125
 
 var _overlay: ColorRect
+var _toggle_button: Button
 var _is_transitioning := false
 
 
@@ -23,12 +24,39 @@ func _ready() -> void:
 	_overlay.set_anchors_preset(Control.PRESET_FULL_RECT)
 	add_child(_overlay)
 
+	# Touch/click affordance for the era switch, alongside the existing
+	# E-key shortcut - previously keyboard-only, which meant the game's
+	# central mechanic had no way to be triggered on a touch-only device
+	# at all (found while writing store_copy.md, jf. issue #36). Placed
+	# top-left next to PauseMenuUI's "Menu" button (offset_left 16-120).
+	_toggle_button = Button.new()
+	_toggle_button.text = "Era"
+	_toggle_button.custom_minimum_size = Vector2(0, 44)
+	_toggle_button.set_anchors_preset(Control.PRESET_TOP_LEFT)
+	_toggle_button.offset_left = 136
+	_toggle_button.offset_right = 220
+	_toggle_button.offset_top = 16
+	_toggle_button.offset_bottom = 60
+	_toggle_button.visible = false
+	_toggle_button.pressed.connect(_request_toggle_era)
+	add_child(_toggle_button)
+
 
 func _unhandled_input(event: InputEvent) -> void:
-	if _is_transitioning or DialogueUI.is_open() or QuestLogUI.is_open() or ChronicleUI.is_open():
-		return
 	if event is InputEventKey and event.pressed and not event.echo and event.keycode == KEY_E:
-		_toggle_era()
+		_request_toggle_era()
+
+
+## Brukes av main_menu.gd, samme mønster som PauseMenuUI/QuestLogUI/
+## ChronicleUI: knappen gir ingen mening før et spill faktisk er i gang.
+func set_toggle_visible(visible_now: bool) -> void:
+	_toggle_button.visible = visible_now
+
+
+func _request_toggle_era() -> void:
+	if _is_transitioning or DialogueUI.is_open() or QuestLogUI.is_open() or ChronicleUI.is_open() or PauseMenuUI.is_open():
+		return
+	_toggle_era()
 
 
 func _toggle_era() -> void:
