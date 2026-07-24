@@ -16,3 +16,10 @@ func set_era(new_era: Era.Type) -> void:
 		return
 	current_era = new_era
 	era_changed.emit(current_era)
+
+
+## Brukes av "Nytt spill" i hovedmenyen. Setter tilstanden direkte (uten
+## signal) siden dette skjer før lokasjonsscenen — og dermed alle lyttere på
+## era_changed — i det hele tatt er lastet.
+func reset() -> void:
+	current_era = Era.Type.VIKING_AGE

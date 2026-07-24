@@ -15,6 +15,17 @@ var _completed_step_counts: Dictionary = {}
 var _completed_quest_ids: Dictionary = {}
 
 
+## Brukes av "Nytt spill" i hovedmenyen: uten dette ville en Quest-Resource
+## som allerede er fullført tidligere i samme nettleserøkt (Godot cacher/
+## gjenbruker samme instans ved gjentatt lasting av samme .tres-fil) fortsatt
+## telle som registrert/fullført i register_quest() sin duplikatsjekk under.
+func reset() -> void:
+	_active_quests.clear()
+	_completed_conditions.clear()
+	_completed_step_counts.clear()
+	_completed_quest_ids.clear()
+
+
 func register_quest(quest: Quest) -> void:
 	if quest == null or _active_quests.has(quest):
 		return
