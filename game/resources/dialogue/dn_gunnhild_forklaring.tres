@@ -7,7 +7,7 @@
 [resource]
 script = ExtResource("1_dn")
 speaker = "Gunnhild"
-text = "Aner ikke, har alltid vært der. Men vet du hva - et sted lenger ut i Lofoten fant en bonde faktisk restene av et helt vikinghøvdinghus da han pløyde jordet sitt, i 1981. Kanskje det er noe lignende her òg, hvem vet."
+text = "No idea. It's just always been there. Funny thing, though - a farmer out past here once turned up the remains of an entire Viking chieftain's hall, just from ploughing his field. Eighty-one, I think it was. People still talk about it. Makes you wonder what's under half the farms around here."
 era = 0
 related_claims = Array[ExtResource("2_hcscript")]([ExtResource("3_claim")])
 completion_condition = "snakket_med_gunnhild_om_forhoyningen"

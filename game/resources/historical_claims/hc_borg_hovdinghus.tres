@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_tf37k")
-claim_text = "På Vestvågøy i Lofoten pløyde en bonde i 1981 opp restene av et 83 meter langt høvdinghus på sitt eget jorde - ikke gjennom et planlagt forskningsprosjekt, men ved vanlig jordbruksarbeid."
+claim_text = "On Vestvågøy, a farmer ploughing his own field in 1981 turned up the remains of an 83-metre chieftain's hall - not through any planned dig, just ordinary farm work breaking through into something that had waited underneath the whole time."
 era = 1
 place = "Borg"
 certainty = 0

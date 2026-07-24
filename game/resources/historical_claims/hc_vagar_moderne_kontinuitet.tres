@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_tf37k")
-claim_text = "Vágar (i dag Kabelvåg) er den dag i dag et levende fiskevær knyttet til Lofotfisket - i motsetning til Kaupang, som ble forlatt og aldri videreført, viser Vágar en sjelden, dokumentert kontinuitet fra vikingtid til nåtid."
+claim_text = "Vágar - Kabelvåg today - is still a working fishing village tied to the Lofoten fisheries. Unlike Kaupang, which was abandoned and never resettled, this is one of the rare places where the thread from the Viking Age to now was never actually cut."
 era = 0
 place = "Vágar/Kabelvåg"
 certainty = 0

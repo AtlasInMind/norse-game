@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_tf37k")
-claim_text = "Utgravningene ved Borg har funnet gullgubber og importert Tating-keramikk fra kontinentet, som viser at høvdingsetet hadde vidstrakte handelsforbindelser i vikingtiden."
+claim_text = "The excavations at Borg turned up gold foil figures and imported pottery from the continent - proof this hall's reach went far beyond the island it sat on."
 era = 1
 place = "Borg"
 certainty = 0

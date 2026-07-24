@@ -4,5 +4,5 @@
 
 [resource]
 script = ExtResource("1_qs")
-description = "Bytt tidslag og se graven slik den en gang var."
+description = "Switch eras and see the grave as it once was."
 completion_condition = "sett_vikinggraven_vikingtid"

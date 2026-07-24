@@ -5,5 +5,5 @@
 
 [resource]
 script = ExtResource("2_dc")
-choice_text = "Hvor langt tilbake går det da, tror du?"
+choice_text = "How far back do you think it goes?"
 next_node = ExtResource("1_next")

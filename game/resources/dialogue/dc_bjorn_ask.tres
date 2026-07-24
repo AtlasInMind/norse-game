@@ -5,5 +5,5 @@
 
 [resource]
 script = ExtResource("2_dc")
-choice_text = "Hva fant dere?"
+choice_text = "What did you find?"
 next_node = ExtResource("1_next")

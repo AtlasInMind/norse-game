@@ -9,8 +9,8 @@
 [resource]
 script = ExtResource("1_quest")
 quest_id = "borg_hovdingsete"
-title = "Åkeren som skjulte høvdingsetet"
-description = "Undersøk den merkelige forhøyningen i jordet - og se hva den egentlig skjuler."
+title = "The Rise in the Field"
+description = "Something is wrong with the ground here. See what the field has been hiding."
 place = "Borg"
 required_eras = Array[int]([0, 1])
 steps = Array[ExtResource("2_qsscript")]([ExtResource("3_step1"), ExtResource("4_step2"), ExtResource("5_step3")])

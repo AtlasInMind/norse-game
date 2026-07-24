@@ -7,6 +7,6 @@
 [resource]
 script = ExtResource("3_dn")
 speaker = "Gunnhild"
-text = "Nei, se der! Er du på tur? Pass deg for forhøyningen i jordet der - traktoren min hopper alltid akkurat der."
+text = "Oh - hello. Out walking? Watch your step around that rise in the field there. My tractor jumps every time it crosses that spot. Has for years."
 era = 0
 choices = Array[ExtResource("1_dcscript")]([ExtResource("2_choice")])

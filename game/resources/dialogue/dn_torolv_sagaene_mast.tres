@@ -7,6 +7,6 @@
 [resource]
 script = ExtResource("1_dn")
 speaker = "Torolv"
-text = "Dokumentert, ja, i den forstand at det står skrevet - i sagaene. Men de ble satt ned på pergament lenge etter min tid, av folk som aldri var her. Skrevet ned, men ikke sett med egne øyne av den som skrev det."
+text = "Because the ones who didn't never came back to tell you why you should have. That's reason enough for me. I don't ask what's under the water - I just touch the mast and get on with the crossing."
 era = 1
 choices = Array[ExtResource("2_dcscript")]([ExtResource("3_choice")])

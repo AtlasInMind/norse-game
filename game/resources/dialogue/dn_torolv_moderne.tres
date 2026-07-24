@@ -7,7 +7,7 @@
 [resource]
 script = ExtResource("1_dn")
 speaker = "Torolv"
-text = "Det vet ikke jeg noe om, kjøpmann - jeg er jo her og nå. Men kanskje du, som ser begge tidslag, kan svare på det selv?"
+text = "That I couldn't tell you, trader - I only know here and now. But you're the one who walks both times, aren't you. Go and see for yourself what's left of us."
 era = 1
 related_claims = Array[ExtResource("2_hcscript")]([ExtResource("3_claim")])
 completion_condition = "hort_om_vagars_historie"

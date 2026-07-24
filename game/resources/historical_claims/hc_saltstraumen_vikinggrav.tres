@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_tf37k")
-claim_text = "I 2021 ble en antatt vikinggrav med pilspiss, glassperle og øks funnet rett under et bolighus i Saltstraumen-området, oppdaget under vanlig anleggsarbeid."
+claim_text = "In 2021, a suspected Viking grave - arrowhead, glass bead, axe - was found directly beneath a house in the Saltstraumen area, turned up during ordinary construction work."
 era = 1
 place = "Saltstraumen"
 certainty = 1

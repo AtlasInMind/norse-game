@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_tf37k")
-claim_text = "Sagaer som Egils saga, Hallfreðar saga og Grettis saga nevner Vágar helt tilbake på 800- og 900-tallet som handels- og fiskevær, men sagaene ble skrevet ned lenge etter hendelsene, så de eldste detaljene har lav-middels sikkerhet."
+claim_text = "Sagas written centuries later - Egils saga, Hallfreðar saga, Grettis saga - all place Vágar as a trading and fishing harbor as far back as the 800s and 900s. They were set down long after the fact, by people who weren't there, so the oldest details are closer to memory passed down than to record."
 era = 1
 place = "Vágar/Kabelvåg"
 certainty = 1

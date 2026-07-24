@@ -4,5 +4,5 @@
 
 [resource]
 script = ExtResource("1_qs")
-description = "Bytt tidslag og se hva forhøyningen egentlig er."
+description = "Switch eras and see what the rise really is."
 completion_condition = "sett_hovdinghuset_vikingtid"

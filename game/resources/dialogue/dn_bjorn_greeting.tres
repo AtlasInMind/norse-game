@@ -7,6 +7,6 @@
 [resource]
 script = ExtResource("3_dn")
 speaker = "Bjørn"
-text = "Å, det jordstykket? Vi grov litt der for noen år siden - fant noe rart. Måtte ringe arkeologene."
+text = "Oh, that patch? We dug there a few years back - turned up something we didn't expect. Had to call the archaeologists in."
 era = 0
 choices = Array[ExtResource("1_dcscript")]([ExtResource("2_choice")])

@@ -9,8 +9,8 @@
 [resource]
 script = ExtResource("1_quest")
 quest_id = "saltstraumen_graven"
-title = "Graven under stuegulvet"
-description = "Finn ut hva som egentlig lå gjemt under jordet ved Bjørns hus."
+title = "The Grave Under the Floor"
+description = "Find out what was really buried beside Bjørn's house."
 place = "Saltstraumen"
 required_eras = Array[int]([0, 1])
 steps = Array[ExtResource("2_qsscript")]([ExtResource("3_step1"), ExtResource("4_step2"), ExtResource("5_step3")])

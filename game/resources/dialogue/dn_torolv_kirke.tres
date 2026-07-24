@@ -9,7 +9,7 @@
 [resource]
 script = ExtResource("1_dn")
 speaker = "Torolv"
-text = "Ja, kongen selv - Øystein Magnusson - lot bygge kirke og rorbuer her tidlig på 1100-tallet. Det er godt dokumentert, ikke bare en historie."
+text = "They say the king himself - Øystein - means to build a church and fishing shelters here. Not just talk, either. The king's men have already been through, taking the measure of the ground."
 era = 1
 related_claims = Array[ExtResource("2_hcscript")]([ExtResource("3_claim")])
 choices = Array[ExtResource("4_dcscript")]([ExtResource("5_choice")])

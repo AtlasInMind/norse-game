@@ -4,6 +4,6 @@
 
 [resource]
 script = ExtResource("1_qs")
-description = "Legg merke til forhøyningen i jordet."
+description = "Notice the rise in the field."
 era = 0
 completion_condition = "sett_forhoyningen_i_akeren"

@@ -4,6 +4,6 @@
 
 [resource]
 script = ExtResource("1_qs")
-description = "Legg merke til det nylig gravde jordstykket ved huset."
+description = "Notice the freshly dug patch of ground by the house."
 era = 0
 completion_condition = "sett_gravestedet_moderne"

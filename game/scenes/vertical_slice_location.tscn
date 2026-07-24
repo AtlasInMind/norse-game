@@ -64,7 +64,7 @@ target_desired_distance = 4.0
 [node name="BorgForhoyningModern" parent="." instance=ExtResource("11_objscene")]
 position = Vector2(180, 60)
 era = 0
-examine_text = "Jorden her hever seg svakt. Traktorsporet er alltid ujevnt akkurat på dette punktet."
+examine_text = "The ground rises here, just slightly. The tractor tracks are always uneven at exactly this spot."
 completion_condition = "sett_forhoyningen_i_akeren"
 
 [node name="Gunnhild" parent="." instance=ExtResource("10_npcscene")]
@@ -77,14 +77,14 @@ root_dialogue = ExtResource("20_dngunnhild")
 [node name="BorgHovdinghusVikingtid" parent="." instance=ExtResource("11_objscene")]
 position = Vector2(180, 60)
 era = 1
-examine_text = "Et langt tømmerhus strekker seg over tunet - flere titalls meter, med røyk fra ildstedet inni. Dette må være høvdingens sal."
+examine_text = "A long timber hall stretches across the yard - tens of metres of it, smoke rising from the hearth inside. This must be the chieftain's hall."
 completion_condition = "sett_hovdinghuset_vikingtid"
 related_claim = ExtResource("24_hcborgmakt")
 
 [node name="VagarSkiltModern" parent="." instance=ExtResource("11_objscene")]
 position = Vector2(290, 150)
 era = 0
-examine_text = "Et forvitret skilt ved brygga. Under nyere maling anes bokstaver: «VÁGAR»."
+examine_text = "A weathered sign by the wharf. Under the newer paint, older letters show through: «VÁGAR»."
 completion_condition = "lest_skiltet_vagar"
 
 [node name="Sigrun" parent="." instance=ExtResource("10_npcscene")]
@@ -104,12 +104,12 @@ root_dialogue = ExtResource("22_dntorolv")
 [node name="VagarVarerVikingtid" parent="." instance=ExtResource("11_objscene")]
 position = Vector2(285, 145)
 era = 1
-examine_text = "Utenlandske varer ligger stablet ved brygga - keramikk, glassperler og annet gods, fraktet inn av skip fra fjerne strøk."
+examine_text = "Foreign goods sit stacked by the wharf - pottery, glass beads, and other cargo, carried in by ships from far away."
 
 [node name="SaltstraumenJordstykkeModern" parent="." instance=ExtResource("11_objscene")]
 position = Vector2(400, 230)
 era = 0
-examine_text = "Et lite stykke jord ved husveggen er nylig gravd opp igjen og fylt igjen. Gresset har ikke rukket å gro tilbake."
+examine_text = "A small patch of ground by the house wall has been dug up and filled back in recently. The grass hasn't grown back yet."
 completion_condition = "sett_gravestedet_moderne"
 
 [node name="Bjorn" parent="." instance=ExtResource("10_npcscene")]
@@ -122,6 +122,6 @@ root_dialogue = ExtResource("23_dnbjorn")
 [node name="SaltstraumenGravVikingtid" parent="." instance=ExtResource("11_objscene")]
 position = Vector2(400, 230)
 era = 1
-examine_text = "En pilspiss, en blank glassperle og et øksehode ligger ved siden av noen ben, dekket av tynt jordsmonn."
+examine_text = "An arrowhead, a bright glass bead, and an axe head lie beside a scatter of bones, just under a thin layer of soil."
 completion_condition = "sett_vikinggraven_vikingtid"
 related_claim = ExtResource("25_hcsalt")

@@ -4,6 +4,6 @@
 
 [resource]
 script = ExtResource("1_qs")
-description = "Legg merke til det gamle skiltet ved brygga."
+description = "Notice the old sign by the wharf."
 era = 0
 completion_condition = "lest_skiltet_vagar"

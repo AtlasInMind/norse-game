@@ -9,8 +9,8 @@
 [resource]
 script = ExtResource("1_quest")
 quest_id = "vagar_fiskevaeret"
-title = "Fiskeværet som aldri sluttet"
-description = "Spor Vágars historie fra vikingtidens handelsvær til dagens levende fiskevær."
+title = "The Harbor That Never Stopped"
+description = "Trace Vágar's story from a Viking-Age trading harbor to the fishing village it still is today."
 place = "Vágar/Kabelvåg"
 required_eras = Array[int]([0, 1])
 steps = Array[ExtResource("2_qsscript")]([ExtResource("3_step1"), ExtResource("4_step2"), ExtResource("5_step3")])

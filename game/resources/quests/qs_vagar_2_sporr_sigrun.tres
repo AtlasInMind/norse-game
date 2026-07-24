@@ -4,6 +4,6 @@
 
 [resource]
 script = ExtResource("1_qs")
-description = "Spør Sigrun om fiskeværets historie."
+description = "Ask Sigrun about the village's history."
 era = 0
 completion_condition = "snakket_med_sigrun_om_fiskevaeret"

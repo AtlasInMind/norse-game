@@ -5,6 +5,6 @@
 [resource]
 script = ExtResource("1_dn")
 speaker = "Sigrun"
-text = "Ingen vet helt sikkert. Men prøv å gå tilbake i tid selv og se hva du finner her."
+text = "No one really knows for sure. Go back and see for yourself, if you can."
 era = 0
 completion_condition = "snakket_med_sigrun_om_fiskevaeret"

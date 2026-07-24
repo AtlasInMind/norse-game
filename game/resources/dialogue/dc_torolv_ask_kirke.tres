@@ -5,5 +5,5 @@
 
 [resource]
 script = ExtResource("2_dc")
-choice_text = "Har noe forandret seg siden da?"
+choice_text = "Has anything changed since then?"
 next_node = ExtResource("1_next")

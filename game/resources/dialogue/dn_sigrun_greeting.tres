@@ -7,6 +7,6 @@
 [resource]
 script = ExtResource("3_dn")
 speaker = "Sigrun"
-text = "Dette stedet har vel alltid vært et fiskevær, tenker jeg. Men hvor langt tilbake det egentlig går, det har jeg aldri fått helt klarhet i."
+text = "This place has always been a fishing village, far as I know. How far back it actually goes, though - I've never gotten a straight answer on that."
 era = 0
 choices = Array[ExtResource("1_dcscript")]([ExtResource("2_choice")])

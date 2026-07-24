@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_tf37k")
-claim_text = "Kong Øystein 1. Magnusson lot bygge kirke og rorbuer i Vágar tidlig på 1100-tallet, og stedet ble navngitt som ett av landets tre viktigste handelssteder i en kongelig forordning fra 1384 - godt dokumentert, ikke bare en historie folk forteller."
+claim_text = "King Øystein I Magnusson had a church and fishing shelters built at Vágar in the early 1100s, and by 1384 a royal decree named the place one of the three most important trading harbors in the country."
 era = 1
 place = "Vágar/Kabelvåg"
 certainty = 0

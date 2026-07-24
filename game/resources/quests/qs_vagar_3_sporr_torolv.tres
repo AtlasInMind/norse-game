@@ -4,5 +4,5 @@
 
 [resource]
 script = ExtResource("1_qs")
-description = "Snakk med kjøpmannen Torolv i vikingtidslaget om Vágars historie."
+description = "Talk to the merchant Torolv, in the Viking Age, about Vágar's history."
 completion_condition = "hort_om_vagars_historie"

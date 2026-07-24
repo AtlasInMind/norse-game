@@ -7,6 +7,6 @@
 [resource]
 script = ExtResource("3_dn")
 speaker = "Torolv"
-text = "Vágar, kjøpmann? Her handles det fisk, korn og alt derimellom. Har du hørt sagaene om stedet?"
+text = "Vágar, trader? Fish, grain - anything that moves gets traded here. Have you heard what they sing about this place?"
 era = 1
 choices = Array[ExtResource("1_dcscript")]([ExtResource("2_choice")])

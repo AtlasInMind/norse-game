@@ -7,6 +7,6 @@
 [resource]
 script = ExtResource("1_dn")
 speaker = "Torolv"
-text = "Ikke bare det, nei - det står i sagaene, ikke bare i minnet til folk som forteller det videre muntlig. Men en skrevet historie, satt ned lenge etterpå, er heller ikke det samme som å ha sett det selv."
+text = "As long as anyone now living can say - and longer than that, if the old stories are worth anything. Ships stop here because ships have always stopped here. Not much of an answer, I know. It's the only one I have."
 era = 1
 choices = Array[ExtResource("2_dcscript")]([ExtResource("3_choice")])
