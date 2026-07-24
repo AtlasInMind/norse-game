@@ -35,7 +35,7 @@ func _ready() -> void:
 	var menu_box := _menu_box
 
 	var title := Label.new()
-	title.text = "Norse Game"
+	title.text = "What the Ground Remembers"
 	title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	menu_box.add_child(title)
 

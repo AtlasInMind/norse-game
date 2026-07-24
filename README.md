@@ -1,6 +1,6 @@
 # Norse Game
 
-Et spill inspirert av norrøn mytologi, bygget i Godot.
+Repoets/prosjektets interne navn. Selve spillets tittel er **«What the Ground Remembers»** (valgt 2026-07-25, se `docs/title_options.md` og `docs/DECISIONS.md`) — et atmosfærisk utforskningsspill, bygget i Godot, om en norsk kyststrekning som eksisterer i to tidsperioder på én gang.
 
 ## Status
 
